@@ -1,0 +1,1690 @@
+<title>talpín</title>
+<meta name="description" content="Scholarships, guides and deadlines for high school students in Kazakhstan who want to study abroad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Unbounded:wght@300;400;500&display=swap">
+<style>
+/* Layout: one 1080px column; hairline-separated lists instead of cards; mono for every date, count and code. Dark by default, light on request. */
+:root{
+  --bg:#0e0f11; --surface:#141518; --raise:#1b1d21; --fg:#ecebe7; --muted:#8d9097; --faint:#5b5e65; --line:#25272c;
+  --accent:#73c6dc; --accent-soft:rgba(115,198,220,.12); --warn:#e2a35a; --warn-soft:rgba(226,163,90,.13); --ok:#86c39a;
+  --blue:#2f66e0; --blue-hover:#4479ef; --on-blue:#ffffff;
+  --font-display:"Unbounded","Geist",ui-sans-serif,system-ui,sans-serif;
+  --font-body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:6px; --wrap:1080px;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f6f7f8; --surface:#ffffff; --raise:#eceef1; --fg:#131417; --muted:#5c6068; --faint:#9a9ea5; --line:#e1e3e7;
+  --accent:#0a7891; --accent-soft:rgba(10,120,145,.09); --warn:#a35f0c; --warn-soft:rgba(163,95,12,.1); --ok:#2d7444;
+  --blue:#1f5fd6; --blue-hover:#184db0; --on-blue:#ffffff;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.6 var(--font-body);-webkit-font-smoothing:antialiased;min-height:100%}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--bg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:500}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.label{font:500 11px/1.4 var(--font-mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.head-inner{display:flex;align-items:center;gap:28px;min-height:60px;flex-wrap:wrap}
+.logo{font:500 19px/1 var(--font-display);text-decoration:none;letter-spacing:-.01em;display:inline-flex;align-items:baseline}
+.caret{color:var(--accent);margin-left:1px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.nav{display:flex;gap:4px}
+.nav a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:var(--r);font-size:14px}
+.nav a:hover{color:var(--fg)}
+.nav a[aria-current="page"]{color:var(--fg);background:var(--raise)}
+.head-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.icon-btn{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--r);background:transparent;color:var(--muted);cursor:pointer}
+.icon-btn:hover{color:var(--fg)}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--raise);border:1px solid var(--line);display:grid;place-items:center;font:500 12px var(--font-mono);color:var(--fg);overflow:hidden;text-decoration:none;flex:none}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+/* 100 × 100 profile photo; as a label it opens the file picker */
+.pfp{position:relative;width:100px;height:100px;border-radius:50%;background:var(--raise);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;flex:none;font:400 38px/1 var(--font-display);color:var(--muted)}
+.pfp img{width:100%;height:100%;object-fit:cover;display:block}
+label.pfp{cursor:pointer}
+label.pfp::after{content:attr(data-hint);position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--bg) 62%,transparent);color:var(--fg);font:500 12px var(--font-mono);opacity:0;transition:opacity .15s}
+label.pfp:hover::after,label.pfp:focus-within::after{opacity:1}
+label.pfp:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+.file-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+@media (max-width:720px){
+  .head-inner{gap:0 12px;padding-block:10px 0}
+  .nav{order:3;width:100%;overflow-x:auto;margin-inline:-10px;padding-block:6px}
+  .head-actions .btn-ghost{display:none}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 14px/1 var(--font-body);padding:10px 14px;border-radius:var(--r);border:1px solid var(--line);background:transparent;color:var(--fg);text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+.btn:hover{border-color:var(--faint)}
+.btn-primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn-ghost{border-color:transparent;color:var(--muted)}
+.btn-ghost:hover{color:var(--fg);border-color:transparent}
+.btn-sm{padding:7px 10px;font-size:13px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.link{color:var(--fg);text-decoration:underline;text-decoration-color:var(--faint);text-underline-offset:3px}
+.link:hover{text-decoration-color:var(--accent)}
+.arrow{font-family:var(--font-mono);transition:transform .15s}
+a:hover .arrow,button:hover .arrow{transform:translateX(2px)}
+
+/* sections */
+main{padding-block:48px 96px;min-height:70vh}
+.section{padding-top:72px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.section-head h2{font-size:20px;letter-spacing:-.01em}
+.page-head{display:grid;gap:14px;margin-bottom:36px;max-width:68ch}
+.page-head h1{font:400 clamp(28px,4.4vw,40px)/1.12 var(--font-display);letter-spacing:-.02em}
+.page-head p{color:var(--muted);font-size:16px}
+hr{border:0;border-top:1px solid var(--line);margin:0}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-top:24px}
+.hero h1{font:400 clamp(34px,5.6vw,58px)/1.06 var(--font-display);letter-spacing:-.03em;margin-top:18px}
+.hero .lead{font-size:17px;color:var(--muted);margin-top:22px;max-width:52ch}
+.hero .ctas{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.term{border:1px solid var(--line);border-radius:10px;background:var(--surface);font:13px/1.75 var(--font-mono);overflow:hidden;min-width:0}
+.term-bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.term-bar i{width:9px;height:9px;border-radius:50%;background:var(--raise);border:1px solid var(--line)}
+.term-body{padding:16px 18px 18px;overflow-x:auto}
+.term-body .cmd{color:var(--fg)}
+.term-body .cmd b{color:var(--accent);font-weight:400}
+.term-line{display:grid;grid-template-columns:7ch minmax(0,1fr) 7ch;gap:12px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.term-line span:nth-child(2){overflow:hidden;text-overflow:ellipsis;color:var(--fg)}
+.term-line:hover span:nth-child(2){text-decoration:underline;text-underline-offset:3px}
+.term-line .t{text-align:right}
+.term-foot{color:var(--faint);margin-top:10px}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:40px}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.step{padding:22px 24px 4px 0;display:grid;gap:8px;align-content:start}
+.step + .step{padding-left:24px;border-left:1px solid var(--line)}
+.step h3{font-size:16px}
+.step p{color:var(--muted);font-size:14px}
+@media (max-width:720px){.steps{grid-template-columns:1fr}.step + .step{padding-left:0;border-left:0;border-top:1px solid var(--line)}.step{padding-bottom:20px}}
+
+/* rows (shared by scholarships, guides, deadlines) */
+.rows{border-bottom:1px solid var(--line)}
+.row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:20px;align-items:center;padding:18px 12px;margin-inline:-12px;border-top:1px solid var(--line);border-radius:0;transition:background .12s}
+.row:hover{background:var(--surface)}
+.row-title{font-weight:500;font-size:16px;text-decoration:none}
+.row-title::after{content:"";position:absolute;inset:0}
+.row-sub{color:var(--muted);font-size:13.5px;margin-top:3px}
+.row-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.row .save,.row .row-action{position:relative;z-index:1}
+.when{text-align:right;display:grid;gap:2px;min-width:12ch}
+.when .date{font:13px var(--font-mono);color:var(--fg)}
+@media (max-width:640px){
+  .row{grid-template-columns:minmax(0,1fr) auto;gap:10px 14px}
+  .row .when{grid-column:1;grid-row:2;text-align:left;display:flex;gap:10px;min-width:0}
+  .row .save{grid-column:2;grid-row:1}
+}
+.tag{font:12px/1.5 var(--font-mono);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 9px;white-space:nowrap}
+.tag.full{color:var(--fg);border-color:var(--faint)}
+.t{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
+.t.soon{color:var(--accent)}
+.t.urgent{color:var(--warn)}
+.save{width:36px;height:36px;display:grid;place-items:center;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--muted);cursor:pointer}
+.save:hover{color:var(--fg);border-color:var(--faint)}
+.save[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.save svg{width:16px;height:16px}
+.save[aria-pressed="true"] svg path{fill:currentColor}
+
+/* catalog */
+.catalog{display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;align-items:start}
+.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);display:grid;gap:26px}
+.fgroup{display:grid;gap:8px;border:0;padding:0;margin:0;min-width:0}
+.fgroup legend{padding:0;margin-bottom:8px}
+.check{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer;color:var(--fg)}
+.check input{appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1px solid var(--faint);border-radius:4px;margin:0;display:grid;place-items:center;flex:none;cursor:pointer;background:transparent}
+.check input[type=radio]{border-radius:50%}
+.check input:checked{background:var(--fg);border-color:var(--fg)}
+.check input:checked::after{content:"";width:6px;height:6px;border-radius:1px;background:var(--bg)}
+.check input[type=radio]:checked::after{border-radius:50%}
+.check .count{margin-left:auto;font:12px var(--font-mono);color:var(--faint)}
+.search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:var(--r);padding:0 12px;background:var(--surface)}
+.search:focus-within{border-color:var(--faint)}
+.search svg{flex:none;color:var(--faint)}
+.search input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:15px var(--font-body);padding:12px 0;outline:none}
+.search kbd{font:11px var(--font-mono);color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 6px;flex-wrap:wrap}
+select,.input{font:14px var(--font-body);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px}
+select:focus,.input:focus{outline:none;border-color:var(--accent)}
+.filter-toggle{display:none}
+.empty{padding:48px 0;display:grid;gap:12px;justify-items:start;color:var(--muted);border-top:1px solid var(--line)}
+@media (max-width:860px){
+  .catalog{grid-template-columns:1fr;gap:20px}
+  .filters{position:static;display:none;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:1px solid var(--line);border-radius:10px;padding:18px}
+  .filters.open{display:grid}
+  .filter-toggle{display:inline-flex}
+}
+
+/* detail */
+.crumbs{display:flex;gap:8px;align-items:center;margin-bottom:28px;font:13px var(--font-mono);color:var(--muted)}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--fg)}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:64px;align-items:start}
+.detail h1{font:400 clamp(28px,4.4vw,42px)/1.1 var(--font-display);letter-spacing:-.02em}
+.detail .alt{color:var(--muted);margin-top:8px;font-size:15px}
+.detail .summary{font-size:17px;margin-top:22px;max-width:62ch}
+.block{padding-top:40px;display:grid;gap:14px}
+.block h2{font-size:15px;font-weight:500}
+.list{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.list li{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.list li::before{content:"—";color:var(--faint);font-family:var(--font-mono)}
+.list.plain li::before{content:none}
+.olist{margin:0;padding:0;list-style:none;counter-reset:s;border-top:1px solid var(--line)}
+.olist li{counter-increment:s;display:grid;grid-template-columns:3ch minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.olist li::before{content:counter(s,decimal-leading-zero);font:13px/1.9 var(--font-mono);color:var(--faint)}
+.docs li{padding:0}
+.docs label{display:flex;gap:12px;align-items:flex-start;padding:11px 0;width:100%;cursor:pointer}
+.docs input{margin-top:3px}
+.docs input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--faint)}
+.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.panel-sec{padding:20px;display:grid;gap:10px}
+.panel-sec + .panel-sec{border-top:1px solid var(--line)}
+.big-date{font:400 26px/1.1 var(--font-display);letter-spacing:-.02em}
+/* live countdown: a solid black-or-white block (inverts with the theme), four mono cells */
+.clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--fg);color:var(--bg);border-radius:var(--r);overflow:hidden;margin-top:4px}
+.clock-cell{display:grid;justify-items:center;gap:4px;padding:14px 4px 11px}
+.clock-cell + .clock-cell{border-left:1px solid color-mix(in srgb,var(--bg) 22%,transparent)}
+.clock b{font:500 26px/1 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.clock span{font:11px/1 var(--font-mono);opacity:.68}
+.clock.ended{background:var(--raise);color:var(--muted)}
+.btn-blue{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.btn-blue:hover{background:var(--blue-hover);border-color:var(--blue-hover);color:var(--on-blue)}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;margin:0;font-size:14px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;text-align:right}
+.note{font-size:13px;color:var(--muted);border-left:2px solid var(--line);padding-left:12px}
+.progress{height:3px;background:var(--raise);border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);border-radius:3px}
+@media (max-width:900px){.detail{grid-template-columns:1fr;gap:40px}.panel{position:static}}
+
+/* deadlines */
+.month{display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px;padding-top:28px}
+.month h2{font:400 15px var(--font-display);padding-top:18px}
+.month h2 small{display:block;font:12px var(--font-mono);color:var(--faint);margin-top:4px}
+.drow{grid-template-columns:5ch minmax(0,1fr) auto auto}
+.day{font:400 22px/1 var(--font-display);font-variant-numeric:tabular-nums}
+@media (max-width:720px){.month{grid-template-columns:1fr;gap:0}.month h2{padding-top:0;margin-bottom:8px}.drow{grid-template-columns:4ch minmax(0,1fr) auto}.drow .when{grid-column:2;grid-row:2;text-align:left}}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font:12px var(--font-mono);color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:1px;background:var(--faint)}
+.legend .l-urgent::before{background:var(--warn)}
+.legend .l-soon::before{background:var(--accent)}
+
+/* guides */
+.grow{grid-template-columns:12ch minmax(0,1fr) auto}
+.grow .label{align-self:start;padding-top:4px}
+.read-mark{font:12px var(--font-mono);color:var(--ok)}
+@media (max-width:640px){.grow{grid-template-columns:minmax(0,1fr) auto}.grow .label{grid-column:1/-1}}
+.article{display:grid;grid-template-columns:minmax(0,68ch) minmax(0,1fr);gap:64px;align-items:start}
+.article h1{font:400 clamp(28px,4.2vw,40px)/1.12 var(--font-display);letter-spacing:-.02em}
+.prose{font-size:16.5px;line-height:1.7}
+.prose h2{font-size:19px;margin:44px 0 12px;letter-spacing:-.01em}
+.prose p{margin:0 0 14px}
+.prose ul{margin:0 0 14px;padding-left:20px}
+.prose li{margin-bottom:6px}
+.prose li::marker{color:var(--faint)}
+.prose strong{font-weight:600}
+.aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);display:grid;gap:24px}
+@media (max-width:900px){.article{grid-template-columns:1fr;gap:40px}.aside{position:static}}
+
+/* forms */
+.auth{max-width:400px;margin:24px auto 0}
+.auth h1{font:400 30px/1.15 var(--font-display);letter-spacing:-.02em}
+.form{display:grid;gap:18px;margin-top:28px}
+.field{display:grid;gap:7px}
+.field label{font-size:13px;color:var(--muted)}
+.field .input,.field select{width:100%;padding:11px 12px;font-size:15px}
+.hint{font-size:12.5px;color:var(--faint)}
+.error{font-size:14px;color:var(--warn);background:var(--warn-soft);border-radius:var(--r);padding:10px 12px}
+.flash{font-size:14px;background:var(--accent-soft);border-radius:var(--r);padding:10px 12px;margin-top:18px}
+.switch{margin-top:24px;font-size:14px;color:var(--muted)}
+
+/* sign-up wizard: pass on the left fills in as you go, one step on the right */
+.signup{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:clamp(40px,7vw,96px);align-items:start;padding-top:16px}
+.su-side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px);display:grid;gap:28px;justify-items:center}
+.su-main h1{font:400 clamp(26px,3.6vw,34px)/1.15 var(--font-display);letter-spacing:-.02em;margin-top:14px}
+.su-main .sub{color:var(--muted);margin-top:10px;font-size:15.5px}
+.su-progress{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.su-progress div{display:grid;gap:8px;font:11px var(--font-mono);color:var(--faint);text-transform:lowercase}
+.su-progress i{height:2px;background:var(--line);border-radius:2px}
+.su-progress .done i,.su-progress .now i{background:var(--fg)}
+.su-progress .now{color:var(--fg)}
+.su-progress .done{color:var(--muted)}
+.back{background:none;border:0;padding:0;color:var(--muted);font:13px var(--font-mono);cursor:pointer;margin-bottom:24px}
+.back:hover{color:var(--fg)}
+.roles{display:grid;gap:12px;margin-top:28px}
+.role{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;text-align:left;width:100%;padding:22px 20px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer;transition:border-color .15s,background .15s}
+.role:hover{border-color:var(--faint);background:var(--raise)}
+.role[aria-pressed="true"]{border-color:var(--fg)}
+.role b{font-weight:500;font-size:16px;display:block}
+.role span{color:var(--muted);font-size:14px}
+.role .arrow{color:var(--muted);font-size:16px}
+
+.wheels{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.8fr) minmax(0,1.2fr);gap:10px;margin-top:28px}
+.wheel-col{display:grid;gap:8px;justify-items:stretch;min-width:0}
+.wheel-col .label{text-align:center}
+.wheel-wrap{position:relative;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.wheel-wrap::before{content:"";position:absolute;inset:80px 6px auto;height:40px;border-radius:6px;background:var(--raise);pointer-events:none}
+.wheel{position:relative;height:200px;overflow-y:auto;scroll-snap-type:y mandatory;padding-block:80px;scrollbar-width:none;overscroll-behavior:contain;-webkit-mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+.wheel::-webkit-scrollbar{display:none}
+.wheel:focus-visible{outline:none}
+.wheel-wrap:focus-within{border-color:var(--accent)}
+.wheel-item{height:40px;line-height:40px;scroll-snap-align:center;text-align:center;font:15px/40px var(--font-mono);font-variant-numeric:tabular-nums;color:var(--faint);cursor:pointer;user-select:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-inline:4px}
+.wheel-item.on{color:var(--fg)}
+.dob-readout{margin-top:18px;font:14px var(--font-mono);color:var(--muted)}
+.dob-readout b{color:var(--fg);font-weight:400}
+
+.nick-box{border:1px solid var(--accent);border-radius:12px;background:var(--accent-soft);padding:22px 20px;display:grid;gap:14px}
+.nick-box .label{color:var(--accent)}
+.nick-big{font:400 clamp(24px,3.4vw,30px)/1.15 var(--font-display);letter-spacing:-.02em;overflow-wrap:anywhere}
+.nick-big .at{color:var(--accent)}
+.nick-big.blank{color:var(--faint)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:13.5px var(--font-mono);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.chip:hover{border-color:var(--faint)}
+.chip[aria-checked="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip.ghost{color:var(--muted);border-style:dashed}
+.prefix{display:flex;align-items:center;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.prefix:focus-within{border-color:var(--accent)}
+.prefix span{padding-left:12px;color:var(--muted);font-family:var(--font-mono)}
+.prefix input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:15px var(--font-mono);padding:11px 12px 11px 2px;outline:none}
+.nick-status{font:12.5px var(--font-mono);color:var(--muted)}
+.nick-status.ok{color:var(--ok)}
+.nick-status.bad{color:var(--warn)}
+.pw-wrap{position:relative}
+.pw-wrap .input{padding-right:64px}
+.pw-toggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--muted);font:12px var(--font-mono);cursor:pointer;padding:6px 8px}
+.rules{list-style:none;margin:0;padding:0;display:grid;gap:4px;font:12.5px var(--font-mono);color:var(--faint)}
+.rules li::before{content:"○ ";}
+.rules li.ok{color:var(--ok)}
+.rules li.ok::before{content:"● "}
+
+.pass{width:min(100%,380px);border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;font:13px/1.5 var(--font-mono)}
+.pass-head{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px dashed var(--line)}
+.pass-head b{font:500 14px var(--font-display);letter-spacing:-.01em}
+.pass-nick{padding:22px 18px 18px;display:grid;gap:4px;border-bottom:1px dashed var(--line)}
+.pass-nick strong{font:400 24px/1.15 var(--font-display);letter-spacing:-.02em;overflow-wrap:anywhere}
+.pass-nick strong.blank{color:var(--faint)}
+.pass dl{display:grid;grid-template-columns:9ch minmax(0,1fr);gap:9px 12px;margin:0;padding:18px}
+.pass dt{color:var(--faint)}
+.pass dd{margin:0;overflow-wrap:anywhere}
+.pass dd.blank{color:var(--faint)}
+.pass-code{height:34px;margin:0 18px 18px;background:repeating-linear-gradient(90deg,var(--fg) 0 1px,transparent 1px 4px,var(--fg) 4px 6px,transparent 6px 9px,var(--fg) 9px 10px,transparent 10px 14px);opacity:.35;border-radius:2px}
+.su-tip{max-width:380px;text-align:center;color:var(--muted);font-size:14px}
+.su-tip b{display:block;color:var(--fg);font-weight:500;font-size:15px;margin-bottom:6px}
+@media (max-width:860px){.signup{grid-template-columns:1fr}.su-side{position:static;order:2}}
+
+.mail{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden;margin-top:28px}
+.mail-head{display:grid;grid-template-columns:8ch minmax(0,1fr);gap:4px 10px;padding:14px 18px;border-bottom:1px solid var(--line);font:12.5px var(--font-mono);color:var(--muted)}
+.mail-head span:nth-child(even){color:var(--fg);overflow-wrap:anywhere}
+.mail-body{padding:22px 18px;display:grid;gap:14px;justify-items:start}
+.mail-tag{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:36px}
+
+/* dashboard */
+.dash-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:8px}
+.dash-head h1{font:400 clamp(28px,4.4vw,40px)/1.1 var(--font-display);letter-spacing:-.02em}
+.dash-id{display:flex;align-items:center;gap:22px;min-width:0}
+.dash-user{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dash-user .handle{font:14px var(--font-mono);color:var(--muted)}
+/* profile page */
+.profile{display:grid;grid-template-columns:260px minmax(0,560px);gap:64px;align-items:start}
+.profile-card{display:grid;justify-items:start;gap:16px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px)}
+.profile-card .who{display:grid;gap:4px}
+.profile-card .who b{font:400 22px/1.2 var(--font-display);letter-spacing:-.02em;font-weight:400;overflow-wrap:anywhere}
+.profile-card .actions{display:flex;gap:8px;flex-wrap:wrap}
+.profile-forms{display:grid;gap:0}
+.pform{display:grid;gap:18px;padding-block:28px;border-top:1px solid var(--line)}
+.pform:first-child{border-top:0;padding-top:0}
+.pform h2{font-size:17px}
+.pform .row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pform .readonly{padding:11px 12px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);font-size:15px;overflow-wrap:anywhere}
+.ok-msg{font-size:14px;color:var(--ok)}
+@media (max-width:820px){.profile{grid-template-columns:1fr;gap:40px}.profile-card{position:static}.pform .row2{grid-template-columns:1fr}}
+.stats{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:28px;flex-wrap:wrap}
+.stat{padding:16px 28px 16px 0;display:grid;gap:4px}
+.stat + .stat{padding-left:28px;border-left:1px solid var(--line)}
+.stat b{font:400 22px/1.1 var(--font-display);font-variant-numeric:tabular-nums}
+@media (max-width:560px){.stat + .stat{padding-left:16px}.stat{padding-right:16px}}
+.dash-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:start}
+@media (max-width:900px){.dash-grid{grid-template-columns:1fr;gap:0}}
+.dash-row{grid-template-columns:minmax(0,1fr) 120px auto}
+.dash-row .prog{display:grid;gap:6px;font:12px var(--font-mono);color:var(--muted)}
+@media (max-width:640px){.dash-row{grid-template-columns:minmax(0,1fr) auto}.dash-row .prog{grid-column:1/-1;grid-row:2}}
+.mini{display:grid;gap:0}
+.mini a{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);text-decoration:none;font-size:14px}
+.mini a:hover span:first-child{text-decoration:underline;text-underline-offset:3px}
+
+/* footer + toast */
+.site-foot{border-top:1px solid var(--line);padding-block:32px 48px;color:var(--muted);font-size:13px}
+.foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-inner p{max-width:60ch}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);opacity:0;background:var(--fg);color:var(--bg);font-size:14px;padding:10px 16px;border-radius:var(--r);pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#home" aria-label="talpín home">talpín<span class="caret" aria-hidden="true">_</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#scholarships" data-nav="scholarships">Scholarships</a>
+      <a href="#deadlines" data-nav="deadlines">Deadlines</a>
+      <a href="#guides" data-nav="guides">Guides</a>
+    </nav>
+    <div class="head-actions" id="head-actions"></div>
+  </div>
+</header>
+<main id="app" class="wrap" tabindex="-1"></main>
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p>Deadlines on talpín are typical dates from past cycles, rolled forward to the next one. Always confirm the exact date on the official website before you apply.</p>
+    <p class="mono">talpín — from the Kazakh <span lang="kk">талпын</span>, “strive”.</p>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+"use strict";
+
+/* ───────────── data ───────────── */
+
+const COUNTRIES = { TR:"Türkiye", HU:"Hungary", KR:"South Korea", JP:"Japan", CN:"China", AE:"UAE", CA:"Canada", US:"United States", IT:"Italy", DE:"Germany", WW:"Worldwide" };
+const LEVELS = { summer:"Summer program", exchange:"Exchange year", ib:"Last two school years (IB)", bachelor:"Bachelor's degree" };
+const LEVEL_SHORT = { summer:"summer", exchange:"exchange year", ib:"IB, grades 11–12", bachelor:"bachelor's" };
+const FUNDING = { full:"Fully funded", need:"Need-based, up to full", partial:"Partial" };
+const GRADES = { "9":"Grade 9", "10":"Grade 10", "11":"Grade 11", "done":"Finished school", "uni":"University student" };
+
+const SCHOLARSHIPS = [
+  { id:"turkiye-burslari", name:"Türkiye Scholarships", alt:"Türkiye Bursları", provider:"Government of Türkiye", country:"TR", level:"bachelor", funding:"full", deadline:"02-20", opens:"January", tests:[],
+    summary:"One of the most popular full scholarships among students from Kazakhstan. It covers everything, including a year of Turkish language before your degree starts.",
+    covers:["Full tuition","Monthly stipend","University dormitory","Health insurance","Round-trip flight","One-year Turkish language course"],
+    eligibility:["Under 21 on the application date for bachelor's programmes","An average of at least 70% in your school grades","Not already a student at a university in Türkiye"],
+    docs:["Passport or national ID","Recent photo","School transcript for grades 9–11","Attestat, or a letter confirming expected graduation","Statement of purpose (written in the portal)","Optional: SAT, IELTS or TOEFL scores"],
+    steps:["Create an account on the Türkiye Scholarships portal when applications open in January.","Choose up to 12 programmes, ranked by preference.","Upload documents and write your statement of purpose.","Shortlisted applicants are invited to an interview, usually in spring.","Results arrive in summer; studies start with the Turkish course in autumn."],
+    note:"Interviews for applicants from Kazakhstan are usually held in person in Almaty or Astana, or online.",
+    url:"https://www.turkiyeburslari.gov.tr", guides:["documents","essays"] },
+  { id:"stipendium-hungaricum", name:"Stipendium Hungaricum", provider:"Tempus Public Foundation, Hungary", country:"HU", level:"bachelor", funding:"full", deadline:"01-15", opens:"November", tests:["IELTS"],
+    summary:"A Hungarian government scholarship with hundreds of English-taught bachelor's programmes, from engineering to medicine. Kazakhstan is a partner country, so you also need a nomination from the Ministry of Science and Higher Education.",
+    covers:["Tuition waiver","Monthly stipend","Dormitory place or housing contribution","Medical insurance"],
+    eligibility:["Citizen of Kazakhstan, nominated by the Ministry of Science and Higher Education","Finished, or finishing, secondary school before the programme starts","English or Hungarian at the level your programme asks for"],
+    docs:["Online application with up to two programmes","Passport","Transcript and attestat (or expected graduation letter), translated","English test certificate, if your programme requires one","Motivation letter","Medical certificate","Nomination documents for the Kazakh ministry"],
+    steps:["Pick up to two programmes on the Stipendium Hungaricum website.","Apply online and submit the ministry nomination by the deadline.","Universities run their own entrance exams or interviews, often online.","Results are published in spring."],
+    note:"Many science and engineering programmes add an online maths or physics entrance exam.",
+    url:"https://stipendiumhungaricum.hu", guides:["documents","english-tests"] },
+  { id:"gks-undergraduate", name:"Global Korea Scholarship", alt:"GKS Undergraduate", provider:"NIIED, Government of Korea", country:"KR", level:"bachelor", funding:"full", deadline:"10-31", opens:"September", tests:[],
+    summary:"A fully funded bachelor's scholarship in South Korea that starts with a year of Korean language. Students from Kazakhstan can apply through the embassy track or directly through a university.",
+    covers:["Full tuition","Monthly allowance","Settlement allowance","Round-trip flight","One-year Korean language course","Medical insurance"],
+    eligibility:["Under 25 at the start of the programme","School grades in the top 20%, or an average of at least 80%","Neither you nor your parents hold Korean citizenship"],
+    docs:["Application form and personal statement","Study plan","One recommendation letter","School transcript and graduation certificate, apostilled","Health assessment form","Optional: TOPIK or IELTS score (adds points)"],
+    steps:["Decide on the embassy track or the university track.","Prepare and apostille your school documents.","Submit your application by the autumn deadline.","Pass document review, an interview and NIIED's final selection.","Arrive in Korea in late summer for the language year."],
+    note:"Embassy-track deadlines are set by the Korean Embassy in Astana and can be earlier than university-track ones.",
+    url:"https://www.studyinkorea.go.kr", guides:["documents","recommendations"] },
+  { id:"mext-undergraduate", name:"MEXT Undergraduate Scholarship", alt:"Japanese Government Scholarship", provider:"Embassy of Japan in Kazakhstan", country:"JP", level:"bachelor", funding:"full", deadline:"05-31", opens:"April", tests:["Entrance exam"],
+    summary:"The Japanese government's full scholarship for undergraduate study. Selection runs through the embassy and includes written exams, so preparation matters more than paperwork.",
+    covers:["Full tuition","Monthly stipend","Round-trip flight","One-year preparatory course, including Japanese"],
+    eligibility:["Aged 17 to 24 on 1 April of the start year","Finished, or finishing, 11 or 12 years of school","Good health"],
+    docs:["Application form","School transcript and graduation certificate","Recommendation from your school principal","Medical certificate","Photo"],
+    steps:["Apply to the Embassy of Japan when it announces the call in spring.","Sit written exams in English, mathematics and Japanese, plus science for science-track applicants.","Shortlisted applicants have an interview.","Successful candidates start in Japan the following April."],
+    note:"You do not need Japanese to apply. The exam still includes a Japanese paper, which is used for placement.",
+    url:"https://www.kz.emb-japan.go.jp", guides:["documents","roadmap"] },
+  { id:"csc-china", name:"Chinese Government Scholarship", alt:"CSC Scholarship", provider:"China Scholarship Council", country:"CN", level:"bachelor", funding:"full", deadline:"03-31", opens:"January", tests:["IELTS"],
+    summary:"A full scholarship for bachelor's degrees at Chinese universities, taught in Chinese or English. You apply through the Chinese Embassy in Kazakhstan or directly through a partner university.",
+    covers:["Full tuition","Free campus accommodation","Monthly stipend","Comprehensive medical insurance"],
+    eligibility:["Under 25 and in good health","Finished secondary school with good grades","HSK for Chinese-taught programmes, or IELTS or TOEFL for English-taught ones"],
+    docs:["Application on the Campus China portal","Passport","Notarised transcript and graduation certificate","Foreigner physical examination form","Non-criminal record certificate","Study plan","Language certificate (HSK, IELTS or TOEFL)"],
+    steps:["Choose up to three universities on the Campus China portal.","Submit through the embassy channel or a university's own channel.","Universities review and admit; the CSC confirms the award.","Results usually arrive in early summer."],
+    note:"Most bachelor's programmes on this scholarship start with one year of Chinese language study.",
+    url:"https://www.campuschina.org", guides:["documents","english-tests"] },
+  { id:"nyu-abu-dhabi", name:"NYU Abu Dhabi", alt:"Need-based financial aid", provider:"New York University Abu Dhabi", country:"AE", level:"bachelor", funding:"need", deadline:"01-05", opens:"August", tests:["IELTS"],
+    summary:"NYU Abu Dhabi admits students without looking at their ability to pay, then meets the full financial need of everyone it admits. For many families from Kazakhstan, that means studying for free.",
+    covers:["Tuition, housing and meals, based on need","Travel to and from home","Candidate weekend in Abu Dhabi for finalists"],
+    eligibility:["Any nationality; admission is need-blind","Strong academic record and English","A financial aid application if your family needs support"],
+    docs:["Common App with essays","School report, counsellor and teacher recommendations","Transcripts for grades 9–11","English proficiency test, if your school does not teach in English","Financial aid application with family income documents"],
+    steps:["Apply through the Common App: Early Decision in November or Regular Decision in January.","Submit the financial aid application by the same deadline.","Finalists are invited to a candidate weekend in Abu Dhabi.","Decisions arrive in December (early) or March (regular)."],
+    note:"Test policies change often. Check whether the SAT is optional for your application year.",
+    url:"https://nyuad.nyu.edu", guides:["financial-aid","essays","recommendations"] },
+  { id:"lester-b-pearson", name:"Lester B. Pearson International Scholarship", provider:"University of Toronto", country:"CA", level:"bachelor", funding:"full", deadline:"01-15", opens:"September", tests:["IELTS"],
+    summary:"The University of Toronto's top award for international students: four years of tuition, books and residence. Around 37 students receive it each year, and your school has to nominate you.",
+    covers:["Full tuition for four years","Books and incidental fees","Full residence support"],
+    eligibility:["In the final year of secondary school, or graduated last year","Nominated by your school","Outstanding academics and real leadership in school or community"],
+    docs:["University of Toronto application","School nomination","Scholarship application with short essays","Transcripts and predicted grades","English test results"],
+    steps:["Ask your school counsellor to nominate you, usually by mid-October.","Apply to the University of Toronto by early November.","Complete the Pearson scholarship application by mid-January.","Finalists are notified in spring."],
+    note:"The nomination comes before the deadline shown here. Talk to your school early in grade 11.",
+    url:"https://future.utoronto.ca/pearson", guides:["essays","recommendations","english-tests"] },
+  { id:"ubc-international-scholars", name:"UBC International Scholars", alt:"Karen McKellin International Leader of Tomorrow Award", provider:"University of British Columbia", country:"CA", level:"bachelor", funding:"need", deadline:"11-15", opens:"September", tests:["IELTS"],
+    summary:"UBC's need-based award for international students with exceptional records. It covers the gap between what your family can pay and the full cost of studying in Vancouver.",
+    covers:["Tuition, fees and living costs, based on need","Renewable for four years"],
+    eligibility:["In your final year of secondary school","Nominated by your school","Demonstrated financial need and strong leadership"],
+    docs:["UBC application with personal profile","School nomination","Financial information from your family","Transcripts and predicted grades","English test results"],
+    steps:["Ask your school to nominate you.","Apply to UBC by the scholarship deadline, which is earlier than the regular one.","Submit the financial information requested.","Recipients are notified in spring."],
+    url:"https://you.ubc.ca/financial-planning/scholarships-awards-international-students/", guides:["financial-aid","essays"] },
+  { id:"harvard-aid", name:"Harvard College Financial Aid", provider:"Harvard University", country:"US", level:"bachelor", funding:"need", deadline:"01-01", opens:"August", tests:["SAT","IELTS"],
+    summary:"Harvard is need-blind for every applicant, including international students, and meets 100% of demonstrated need. Families below a set income level pay nothing at all.",
+    covers:["Tuition, housing, meals and travel, based on need","No loans in the aid package"],
+    eligibility:["Any nationality; admission is need-blind","SAT or ACT scores required","English proficiency results recommended for non-native speakers"],
+    docs:["Common App with essays","School report and counsellor recommendation","Two teacher recommendations","SAT or ACT scores","CSS Profile and family income documents"],
+    steps:["Apply through the Common App: Restrictive Early Action on 1 November or Regular Decision on 1 January.","Submit the CSS Profile with your application.","Interviews are offered to many applicants, often online.","Regular decisions arrive in late March."],
+    url:"https://college.harvard.edu/financial-aid", guides:["sat","financial-aid","essays"] },
+  { id:"mit-aid", name:"MIT Financial Aid", provider:"Massachusetts Institute of Technology", country:"US", level:"bachelor", funding:"need", deadline:"01-05", opens:"August", tests:["SAT","IELTS"],
+    summary:"MIT admits international students need-blind and meets their full need. If you love mathematics and building things, it is worth the effort.",
+    covers:["Tuition, housing and meals, based on need","No loans in the aid package"],
+    eligibility:["Any nationality; admission is need-blind","SAT or ACT scores required","English test recommended for non-native speakers"],
+    docs:["MIT's own application with short essays","Two teacher recommendations (one maths or science, one humanities)","School report and transcripts","SAT or ACT scores","CSS Profile and family income documents"],
+    steps:["Apply through MIT's own portal: Early Action on 1 November or Regular Action in early January.","Submit the CSS Profile.","Do the optional interview with an MIT alumnus, often online.","Decisions arrive in mid-March."],
+    url:"https://mitadmissions.org", guides:["sat","financial-aid","recommendations"] },
+  { id:"uwc", name:"United World Colleges", alt:"UWC National Committee of Kazakhstan", provider:"UWC Kazakhstan", country:"WW", level:"ib", funding:"need", deadline:"12-01", opens:"October", tests:[],
+    summary:"Spend your last two school years at one of 18 UWC schools worldwide, studying for the IB Diploma. The Kazakhstan national committee selects students and arranges full or partial scholarships.",
+    covers:["Tuition and boarding, full or partial","IB Diploma programme","Strong pathway to US scholarships, such as the Davis UWC Scholars Program"],
+    eligibility:["Aged 15 to 17 at the time of applying","Citizen or long-term resident of Kazakhstan","Curiosity and commitment to community service"],
+    docs:["Online application with essays","School transcripts","Recommendation from a teacher"],
+    steps:["Apply to the UWC Kazakhstan national committee in autumn.","Shortlisted students attend a selection day with group activities and interviews.","The committee assigns you to a UWC school and a scholarship.","You start the IB Diploma abroad the following August."],
+    url:"https://www.uwc.org", guides:["essays","roadmap"] },
+  { id:"flex", name:"FLEX Exchange Program", alt:"Future Leaders Exchange", provider:"U.S. Department of State", country:"US", level:"exchange", funding:"full", deadline:"10-31", opens:"August", tests:["Entrance exam"],
+    summary:"A fully funded year at an American high school, living with a host family. It is one of the best ways to build English and independence before you apply to university.",
+    covers:["Round-trip travel","Host family placement","Tuition at an American high school","Monthly stipend","Health insurance"],
+    eligibility:["Citizen of Kazakhstan, in grades 8 to 10 at the time of applying","Within the age range set for the current year","Not previously in the U.S. for more than 90 days in the past 5 years"],
+    docs:["Short online application","Round-one English test","Essays and interview in later rounds"],
+    steps:["Register for round one in early autumn.","Pass the English test, then write essays in round two.","Finalists have an interview and submit full documents.","Placement and departure happen the following summer."],
+    note:"Testing usually happens in several cities across Kazakhstan, so you rarely need to travel far.",
+    url:"https://discoverflex.org", guides:["english-tests","roadmap"] },
+  { id:"yygs", name:"Yale Young Global Scholars", provider:"Yale University", country:"US", level:"summer", funding:"need", deadline:"01-10", opens:"October", tests:[],
+    summary:"A two-week summer program at Yale for high school students from around the world. Financial aid is need-based and can cover the full cost, so do not let the price stop you from applying.",
+    covers:["Program fee, room and board, based on need","Some travel support for students with the highest need"],
+    eligibility:["Currently in grade 10 or 11","Strong English and curiosity about your subject"],
+    docs:["Online application with essays","School transcript","One teacher recommendation","Financial aid application"],
+    steps:["Choose a session: politics, science, technology, innovation and more.","Apply by the regular deadline in January.","Submit the financial aid form with your application.","Decisions arrive in March."],
+    url:"https://globalscholars.yale.edu", guides:["essays","recommendations"] },
+  { id:"kaist", name:"KAIST International Undergraduate Scholarship", provider:"KAIST", country:"KR", level:"bachelor", funding:"partial", deadline:"01-10", opens:"October", tests:["IELTS"],
+    summary:"Korea's leading science and technology university gives most admitted international students a full tuition waiver and a monthly allowance. Programmes are taught in English.",
+    covers:["Full tuition waiver","Monthly allowance","Health insurance"],
+    eligibility:["Neither you nor your parents hold Korean citizenship","Strong maths and science","IELTS, TOEFL or TOPIK"],
+    docs:["Online application with essays","Transcripts and graduation certificate","Two recommendation letters","English or Korean test score","Optional: SAT or olympiad results"],
+    steps:["Apply in one of the admission rounds; the later round closes in winter.","Submit recommendations online.","Some applicants have an online interview.","Results are announced in spring for an autumn start."],
+    url:"https://admission.kaist.ac.kr/intl-undergraduate", guides:["recommendations","english-tests"] },
+  { id:"constructor", name:"Constructor University Scholarships", provider:"Constructor University, Bremen", country:"DE", level:"bachelor", funding:"partial", deadline:"03-01", opens:"October", tests:["IELTS"],
+    summary:"An English-speaking private university in Germany that gives merit and need-based scholarships to most international students. A good option if you want Germany without learning German first.",
+    covers:["Partial or substantial tuition reduction","Need-based support on request"],
+    eligibility:["Strong school results","English at about IELTS 6.5","Any nationality"],
+    docs:["Online application","Transcripts","English test result","Optional: SAT scores (can raise your merit award)"],
+    steps:["Apply online; there is no application fee.","You are considered for merit scholarships automatically.","Request need-based aid if you need it.","Decisions arrive a few weeks after you apply."],
+    url:"https://constructor.university", guides:["english-tests","documents"] },
+  { id:"italy-dsu", name:"Italian Regional Study Grants", alt:"DSU grants, e.g. Politecnico di Milano", provider:"Italian regional agencies", country:"IT", level:"bachelor", funding:"need", deadline:"08-31", opens:"July", tests:["Entrance exam"],
+    summary:"Italy's regions give international students need-based grants that can cover tuition, a yearly cash grant and sometimes free housing. Combined with low tuition, it is one of the cheapest ways to study in Europe.",
+    covers:["Tuition waiver","Yearly grant for living costs","Free meals; housing in some regions"],
+    eligibility:["Admitted to an Italian public university","Family income and assets below the regional limit","Documents proving your family's income, translated and legalised"],
+    docs:["University admission letter","Family income and property documents from Kazakhstan","Official translation into Italian","Legalisation or apostille","Passport and residence permit application"],
+    steps:["Get admitted to an Italian university; many use their own tests (such as TOLC) or accept the SAT.","Collect your family's income documents in Kazakhstan.","Translate and legalise them, then apply to your region's DSU agency in summer.","Grant rankings are published in autumn."],
+    note:"Start collecting family income documents months ahead. This is the step that usually causes delays.",
+    url:"https://www.polimi.it/en/students/tuition-fees-scholarships-and-financial-aid", guides:["financial-aid","documents"] }
+];
+
+const GUIDES = [
+  { id:"roadmap", title:"Your roadmap from grade 9 to departure", grade:"Grades 9–11", mins:6,
+    summary:"What to do each year so that nothing is rushed when grade 11 arrives.",
+    body:[
+      ["Grade 9: explore", ["Your transcript from grade 9 onward is often requested, so keep your grades steady.", "Pick two or three countries that interest you and read about how their universities admit students.", "Start serious English practice. A realistic goal is a confident B2 level by the end of grade 10.", "Try olympiads, clubs or a small project you care about. Depth matters more than a long list."]],
+      ["Grade 10: build", ["Apply to summer programs such as Yale Young Global Scholars. Their deadlines are in winter.", "If you want time abroad before university, look at FLEX (exchange year) or UWC (IB Diploma).", "Take your first IELTS attempt at the end of grade 10 or in the summer.", "Make a shortlist of 10 to 15 universities and scholarships, and save them on your talpín dashboard."]],
+      ["Summer before grade 11: write", ["Draft your personal statement. Expect to rewrite it several times.", "Prepare for the SAT if you are aiming for the US.", "Tell two teachers you would like their recommendation letters in autumn."]],
+      ["Grade 11, autumn: apply", ["US, Canadian and UAE deadlines fall between November and January.", "The GKS embassy track for Korea closes in autumn.", "Order transcripts, translations and apostilles early. They take longer than you think."]],
+      ["Grade 11, winter and spring: keep going", ["Hungary (January), Türkiye (February), China (spring) and Japan (spring) come next.", "Prepare for interviews. Most are friendly conversations about you and your plans.", "Keep the UNT in your plans as a strong back-up option at home."]],
+      ["One more thing about Bolashak", ["The Bolashak scholarship funds master's and PhD study, not bachelor's degrees. It is worth remembering for later, but it will not pay for your first degree."]]
+    ]},
+  { id:"english-tests", title:"IELTS, TOEFL or Duolingo: which test and what score", grade:"Grades 10–11", mins:5,
+    summary:"Choose the right English test, set a target score and plan your attempts.",
+    body:[
+      ["Which test to take", ["**IELTS Academic** is accepted almost everywhere, including by every government scholarship on talpín. You can take it in Almaty, Astana, Shymkent and other cities.", "**TOEFL iBT** is common for US universities and accepted by most others.", "**Duolingo English Test** is online and cheaper. Many US and some European universities accept it, but most government scholarships do not."]],
+      ["Target scores", ["IELTS 6.0–6.5 is enough for most government scholarships and European bachelor's programmes.", "IELTS 7.0 or higher (TOEFL 100+) makes you competitive for Toronto, UBC, NYU Abu Dhabi and similar universities.", "Check each programme's minimum for every section, not just the overall band."]],
+      ["When to take it", ["Scores are valid for two years, so a first attempt at the end of grade 10 is safe.", "Leave room for a retake in early autumn of grade 11, before the big deadlines."]],
+      ["A 12-week plan", ["Weeks 1–2: take a full practice test to find your weakest section.", "Weeks 3–8: one section a day, with a timed writing task twice a week.", "Weeks 9–12: full timed tests every weekend, and speaking practice out loud with a friend or teacher."]]
+    ]},
+  { id:"sat", title:"Do you need the SAT?", grade:"Grades 10–11", mins:5,
+    summary:"Who requires it, how the digital SAT works and what score to aim for.",
+    body:[
+      ["Who asks for it", ["Harvard, MIT and a growing list of selective US universities require the SAT or ACT again.", "Many other US universities are test-optional. A strong score still helps, especially for scholarships.", "Government scholarships in Türkiye, Hungary, Korea and China do not require it. Japan's MEXT uses its own exams."]],
+      ["How it works", ["The SAT is fully digital and adaptive. It has two sections, Reading and Writing, and Math, and lasts about two hours and fifteen minutes.", "You take it on your own laptop in the Bluebook app, at an official test centre. Centres operate in Almaty and Astana; check the College Board site for current dates and seats."]],
+      ["What score to aim for", ["1450 or higher for highly selective universities.", "1500 or higher puts you in the typical range for MIT and Harvard.", "Strong maths scores matter a lot for engineering and science programmes."]],
+      ["Free ways to prepare", ["Official practice on Khan Academy is free and built with the College Board.", "Take the full practice tests in Bluebook under real timing, then review every mistake."]]
+    ]},
+  { id:"documents", title:"Documents: transcripts, attestat, translations and apostille", grade:"Grade 11", mins:7,
+    summary:"The paperwork every application needs, and how to prepare it in Kazakhstan without last-minute stress.",
+    body:[
+      ["What you will need", ["A passport valid for at least 18 months.", "A transcript of your grades for grades 9 to 11, with an explanation of the 5-point grading scale.", "Your attestat. Since it is issued after graduation, most applications accept a certificate from your school confirming that you are studying there.", "English test results, and for some scholarships a medical certificate."]],
+      ["Translations", ["Get a notarised translation into English, or into the language your scholarship asks for.", "Keep the originals safe and send copies unless an original is specifically requested."]],
+      ["Apostille or legalisation", ["Kazakhstan is a member of the Hague Apostille Convention, so many countries, including Hungary, Korea and Türkiye, accept apostilled documents.", "You can request an apostille for educational documents through eGov.", "A few countries still ask for consular legalisation instead. Check the embassy's requirements for every scholarship."]],
+      ["Stay organised", ["Scan everything to PDF and name files the same way every time, for example surname_transcript_en.pdf.", "Start in September of grade 11. Apostilles and translations can take several weeks."]]
+    ]},
+  { id:"essays", title:"Writing a personal statement that sounds like you", grade:"Grades 10–11", mins:6,
+    summary:"How to find your story, structure it and edit it until it is clearly yours.",
+    body:[
+      ["What it is for", ["Your grades show what you have done. The essay shows who you are and how you think.", "Readers spend only a few minutes on each essay. Make yours specific enough that only you could have written it."]],
+      ["Finding a topic", ["List moments when you changed your mind, solved something stubborn or cared about something unexpected.", "Small, concrete stories usually work better than big statements about changing the world.", "Writing about life in your town, your family or your languages can be powerful when it shows how you think."]],
+      ["Structure", ["Open with a scene or a specific detail rather than a quotation.", "Spend most of the essay on what you did and what you learned.", "End by connecting it to what you want to do next."]],
+      ["Editing", ["Write a messy first draft, then cut it by a third.", "Read it aloud. If a sentence sounds like a brochure, rewrite it in your own voice.", "Ask one teacher and one friend to read it, but keep the final decisions for yourself.", "The Common App essay limit is 650 words. Other scholarships set their own limits, so check each one."]]
+    ]},
+  { id:"recommendations", title:"Asking for recommendation letters", grade:"Grade 11", mins:4,
+    summary:"Who to ask, when to ask and how to help teachers write a strong letter.",
+    body:[
+      ["Who to ask", ["Teachers who know you well in class, ideally from grades 10 or 11.", "For STEM programmes, include a maths or science teacher.", "Your class teacher or school counsellor often writes the school report."]],
+      ["When to ask", ["Ask in person at least six weeks before the first deadline.", "Give each teacher a simple list of deadlines and how each letter is submitted."]],
+      ["Make it easy for them", ["Prepare a one-page summary: your achievements, the projects you did in their class and the programmes you are applying to.", "If a teacher is more comfortable writing in Kazakh or Russian, a certified translation into English is usually accepted. Check each programme."]],
+      ["Say thank you", ["A short handwritten note goes a long way, and let them know your results."]]
+    ]},
+  { id:"financial-aid", title:"Need-based aid, explained", grade:"Grade 11", mins:6,
+    summary:"How universities decide what your family can pay, and which forms to fill in.",
+    body:[
+      ["Need-blind and need-aware", ["Need-blind universities, such as Harvard, MIT and NYU Abu Dhabi, decide on your admission without looking at your finances.", "Need-aware universities may consider your ability to pay when they decide."]],
+      ["The forms", ["Most US universities use the CSS Profile. Others have their own international financial aid form.", "You will need your parents' income for the last year, savings and property, converted from tenge at the current exchange rate.", "Income certificates from your parents' employers and tax documents are the usual proof."]],
+      ["Estimate before you apply", ["Use each university's net price calculator to see what your family would be expected to pay.", "Be honest and consistent. Universities compare your numbers across forms."]],
+      ["Outside the US", ["Government scholarships in Türkiye, Hungary, Korea, Japan and China are not based on family income.", "Italian regional grants are need-based and require translated, legalised income documents."]]
+    ]}
+];
+
+/* ───────────── storage + auth ───────────── */
+
+const mem = {};
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); if (v != null) return JSON.parse(v); } catch (e) {} return k in mem ? mem[k] : d; },
+  set(k, v) { mem[k] = v; try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+  del(k) { delete mem[k]; try { localStorage.removeItem(k); } catch (e) {} }
+};
+const K = { users:"talpin.users", session:"talpin.session", theme:"talpin.theme" };
+
+const allUsers = () => store.get(K.users, {});
+function me() { const e = store.get(K.session, null); return e ? allUsers()[e] || null : null; }
+function saveUser(u) { const all = allUsers(); all[u.email] = u; store.set(K.users, all); }
+
+async function hash(pw, salt) {
+  const data = new TextEncoder().encode(salt + ":" + pw);
+  try {
+    const buf = await crypto.subtle.digest("SHA-256", data);
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+  } catch (e) {
+    let h = 5381; for (const c of data) h = ((h << 5) + h + c) >>> 0; return "x" + h.toString(16);
+  }
+}
+
+/* ───────────── helpers ───────────── */
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[c]);
+const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+const byId = id => SCHOLARSHIPS.find(s => s.id === id);
+const guideById = id => GUIDES.find(g => g.id === id);
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTHS_LONG = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+function today() { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+function nextDate(mmdd) {
+  const [m, d] = mmdd.split("-").map(Number), t = today();
+  let dt = new Date(t.getFullYear(), m - 1, d);
+  if (dt < t) dt = new Date(t.getFullYear() + 1, m - 1, d);
+  return dt;
+}
+const daysLeft = s => Math.round((nextDate(s.deadline) - today()) / 864e5);
+const fmtDate = dt => `${dt.getDate()} ${MONTHS[dt.getMonth()]} ${dt.getFullYear()}`;
+const urgency = n => n <= 21 ? "urgent" : n <= 60 ? "soon" : "";
+const countdown = s => { const n = daysLeft(s); return `<span class="t ${urgency(n)}" title="${n} days left">${n === 0 ? "today" : "T−" + n + "d"}</span>`; };
+const firstName = u => u.name.trim().split(/\s+/)[0];
+
+/* live deadline clock: counts to 23:59:59 local time on the deadline day */
+const deadlineEnd = s => { const d = nextDate(s.deadline); return new Date(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59); };
+const CLOCK_UNITS = [["day", "days"], ["hour", "hours"], ["minute", "minutes"], ["second", "seconds"]];
+function clockParts(ms) {
+  const t = Math.max(0, Math.floor(ms / 1000));
+  return [Math.floor(t / 86400), Math.floor(t % 86400 / 3600), Math.floor(t % 3600 / 60), t % 60];
+}
+function clockHTML(s) {
+  const end = deadlineEnd(s), parts = clockParts(end - Date.now());
+  const said = parts.map((v, i) => `${v} ${CLOCK_UNITS[i][v === 1 ? 0 : 1]}`).join(", ");
+  return `<div class="clock" id="clock" data-end="${end.getTime()}" role="timer" aria-label="Time left: ${said}">${parts.map((v, i) =>
+    `<div class="clock-cell"><b>${String(v).padStart(i ? 2 : 1, "0")}</b><span>${CLOCK_UNITS[i][v === 1 ? 0 : 1]}</span></div>`).join("")}</div>`;
+}
+let clockTimer = null;
+function tickClock() {
+  const el = document.getElementById("clock");
+  if (!el) { clearInterval(clockTimer); clockTimer = null; return; }
+  const left = Number(el.dataset.end) - Date.now(), parts = clockParts(left);
+  el.querySelectorAll(".clock-cell").forEach((cell, i) => {
+    cell.firstElementChild.textContent = String(parts[i]).padStart(i ? 2 : 1, "0");
+    cell.lastElementChild.textContent = CLOCK_UNITS[i][parts[i] === 1 ? 0 : 1];
+  });
+  if (parts[3] === 0) el.setAttribute("aria-label", "Time left: " + parts.map((v, i) => `${v} ${CLOCK_UNITS[i][v === 1 ? 0 : 1]}`).join(", "));
+  if (left <= 0) { el.classList.add("ended"); clearInterval(clockTimer); clockTimer = null; }
+}
+
+/* avatar: shows the uploaded photo, or the first letter of the nickname */
+const initial = u => esc((u.nick || firstName(u)).slice(0, 1).toUpperCase());
+const avatarInner = u => u.avatar ? `<img src="${u.avatar}" alt="">` : initial(u);
+
+/* turn any picked image into a 100 × 100 centre-cropped JPEG data URL */
+function toSquare100(file) {
+  return new Promise((resolve, reject) => {
+    if (!file || !/^image\//.test(file.type)) return reject(new Error("Choose an image file: JPG, PNG or WebP."));
+    if (file.size > 15 * 1024 * 1024) return reject(new Error("That image is over 15 MB. Choose a smaller one."));
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = () => {
+      const side = Math.min(img.naturalWidth, img.naturalHeight);
+      const c = document.createElement("canvas"); c.width = c.height = 100;
+      const ctx = c.getContext("2d");
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(img, (img.naturalWidth - side) / 2, (img.naturalHeight - side) / 2, side, side, 0, 0, 100, 100);
+      URL.revokeObjectURL(url);
+      resolve(c.toDataURL("image/jpeg", 0.9));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("We couldn't read that image. Try a JPG or PNG.")); };
+    img.src = url;
+  });
+}
+
+const ICON = {
+  save:'<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 2.5h8v11l-4-2.6-4 2.6v-11Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>',
+  search:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.6" stroke="currentColor" stroke-width="1.3"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>',
+  theme:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11Z" fill="currentColor"/></svg>'
+};
+
+let toastTimer;
+function toast(msg) {
+  const t = $("#toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+/* flash message + post-auth return route */
+let flash = "", returnTo = "";
+
+function saveBtn(s) {
+  const u = me(), on = !!(u && u.saved.includes(s.id));
+  return `<button class="save" type="button" data-save="${s.id}" aria-pressed="${on}" aria-label="${on ? "Remove" : "Save"} ${esc(s.name)}" title="${on ? "Saved" : "Save to dashboard"}">${ICON.save}</button>`;
+}
+
+function sRow(s, opts = {}) {
+  const dt = nextDate(s.deadline);
+  return `<div class="row">
+    <div>
+      <a class="row-title" href="#scholarship.${s.id}">${esc(s.name)}</a>
+      <div class="row-sub">${esc(s.provider)} · ${esc(COUNTRIES[s.country])}</div>
+      ${opts.compact ? "" : `<div class="row-meta"><span class="tag">${LEVEL_SHORT[s.level]}</span><span class="tag ${s.funding === "full" ? "full" : ""}">${FUNDING[s.funding].toLowerCase()}</span>${s.tests.includes("SAT") ? '<span class="tag">SAT</span>' : ""}</div>`}
+    </div>
+    <div class="when"><span class="date">${fmtDate(dt)}</span>${countdown(s)}</div>
+    ${saveBtn(s)}
+  </div>`;
+}
+
+/* ───────────── views ───────────── */
+
+function viewHome() {
+  const next = [...SCHOLARSHIPS].sort((a, b) => daysLeft(a) - daysLeft(b)).slice(0, 5);
+  const lines = next.map(s => `<a class="term-line" href="#scholarship.${s.id}"><span>${MONTHS[nextDate(s.deadline).getMonth()].toLowerCase()} ${String(nextDate(s.deadline).getDate()).padStart(2, " ")}</span><span>${esc(s.name.toLowerCase())}</span>${countdown(s)}</a>`).join("");
+  const starters = ["roadmap", "english-tests", "documents"].map(guideById);
+  return `
+  <section class="hero">
+    <div>
+      <p class="label">For high school students in Kazakhstan</p>
+      <h1>Study abroad, one deadline at a time.</h1>
+      <p class="lead">Sálem! talpín collects scholarships open to students from Kazakhstan, explains each step in plain language and keeps every deadline in one place, so you can focus on the application itself.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#scholarships">Browse ${SCHOLARSHIPS.length} scholarships <span class="arrow">→</span></a>
+        <a class="btn" href="#guides">Read the guides</a>
+      </div>
+    </div>
+    <div class="term" aria-label="Next five deadlines">
+      <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="term-body">
+        <div class="cmd"><b>$</b> talpin deadlines --next 5</div>
+        ${lines}
+        <div class="term-foot"># updated ${fmtDate(today()).toLowerCase()} · <a class="link" href="#deadlines">see all</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>How talpín works</h2></div>
+    <div class="steps">
+      <div class="step"><span class="label">01 · Find</span><h3>Filter scholarships that fit you</h3><p>Search by country, level, funding and tests. Every listing explains what is covered and who can apply.</p></div>
+      <div class="step"><span class="label">02 · Prepare</span><h3>Follow short, practical guides</h3><p>From English tests to apostilles, each guide tells you what to do and when, from grade 9 onward.</p></div>
+      <div class="step"><span class="label">03 · Track</span><h3>Keep deadlines on your dashboard</h3><p>Save the scholarships you like, tick off documents and see how many days you have left.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Start here</h2><a class="link" href="#guides">All guides</a></div>
+    <div class="rows">${starters.map(gRow).join("")}</div>
+  </section>`;
+}
+
+/* catalog */
+const FKEY = "talpin.filters";
+const defaults = () => ({ q:"", funding:"any", levels:[], countries:[], within:"any", noSat:false, savedOnly:false, sort:"deadline" });
+let F = (() => { try { return Object.assign(defaults(), JSON.parse(sessionStorage.getItem(FKEY) || "{}")); } catch (e) { return defaults(); } })();
+const persistF = () => { try { sessionStorage.setItem(FKEY, JSON.stringify(F)); } catch (e) {} };
+
+function filtered() {
+  const u = me(), words = F.q.toLowerCase().split(/\s+/).filter(Boolean);
+  return SCHOLARSHIPS.filter(s => {
+    if (words.length) {
+      const hay = [s.name, s.alt, s.provider, COUNTRIES[s.country], s.summary, LEVELS[s.level], FUNDING[s.funding]].join(" ").toLowerCase();
+      if (!words.every(w => hay.includes(w))) return false;
+    }
+    if (F.funding !== "any" && s.funding !== F.funding) return false;
+    if (F.levels.length && !F.levels.includes(s.level)) return false;
+    if (F.countries.length && !F.countries.includes(s.country)) return false;
+    if (F.within !== "any" && daysLeft(s) > Number(F.within)) return false;
+    if (F.noSat && s.tests.includes("SAT")) return false;
+    if (F.savedOnly && !(u && u.saved.includes(s.id))) return false;
+    return true;
+  }).sort((a, b) => F.sort === "name" ? a.name.localeCompare(b.name) : daysLeft(a) - daysLeft(b));
+}
+
+function viewCatalog() {
+  const count = (key, val) => SCHOLARSHIPS.filter(s => s[key] === val).length;
+  const countries = [...new Set(SCHOLARSHIPS.map(s => s.country))].sort((a, b) => COUNTRIES[a].localeCompare(COUNTRIES[b]));
+  const radio = (name, val, label, cur) => `<label class="check"><input type="radio" name="${name}" value="${val}" ${cur === val ? "checked" : ""}>${label}</label>`;
+  return `
+  <div class="page-head">
+    <span class="label">Catalog</span>
+    <h1>Scholarships for students from Kazakhstan</h1>
+    <p>Every listing is open to Kazakh citizens. Filter by what matters to you, then save the ones you want to track.</p>
+  </div>
+  <div class="catalog">
+    <aside class="filters" id="filters" aria-label="Filters">
+      <fieldset class="fgroup"><legend class="label">Funding</legend>
+        ${radio("funding", "any", "Any", F.funding)}
+        ${Object.entries(FUNDING).map(([k, v]) => radio("funding", k, `${v}<span class="count">${count("funding", k)}</span>`, F.funding)).join("")}
+      </fieldset>
+      <fieldset class="fgroup"><legend class="label">Level</legend>
+        ${Object.entries(LEVELS).map(([k, v]) => `<label class="check"><input type="checkbox" name="levels" value="${k}" ${F.levels.includes(k) ? "checked" : ""}>${v}<span class="count">${count("level", k)}</span></label>`).join("")}
+      </fieldset>
+      <fieldset class="fgroup"><legend class="label">Destination</legend>
+        ${countries.map(c => `<label class="check"><input type="checkbox" name="countries" value="${c}" ${F.countries.includes(c) ? "checked" : ""}>${COUNTRIES[c]}<span class="count">${count("country", c)}</span></label>`).join("")}
+      </fieldset>
+      <fieldset class="fgroup"><legend class="label">Deadline</legend>
+        ${radio("within", "any", "Any time", F.within)}${radio("within", "30", "Next 30 days", F.within)}${radio("within", "90", "Next 90 days", F.within)}
+      </fieldset>
+      <fieldset class="fgroup"><legend class="label">More</legend>
+        <label class="check"><input type="checkbox" name="noSat" ${F.noSat ? "checked" : ""}>No SAT required</label>
+        ${me() ? `<label class="check"><input type="checkbox" name="savedOnly" ${F.savedOnly ? "checked" : ""}>Saved only</label>` : ""}
+      </fieldset>
+      <div><button class="btn btn-sm" type="button" data-action="reset-filters">Clear filters</button></div>
+    </aside>
+    <section>
+      <label class="search"><span class="sr">Search scholarships</span>${ICON.search}<input id="q" type="search" placeholder="Search by name, country or keyword" value="${esc(F.q)}" autocomplete="off"><kbd>/</kbd></label>
+      <div class="toolbar">
+        <div style="display:flex;gap:10px;align-items:center">
+          <button class="btn btn-sm filter-toggle" type="button" data-action="toggle-filters" aria-controls="filters" aria-expanded="false">Filters</button>
+          <span class="mono muted" id="result-count" aria-live="polite"></span>
+        </div>
+        <label><span class="sr">Sort</span><select id="sort"><option value="deadline" ${F.sort === "deadline" ? "selected" : ""}>Deadline, soonest first</option><option value="name" ${F.sort === "name" ? "selected" : ""}>Name, A to Z</option></select></label>
+      </div>
+      <div id="results"></div>
+    </section>
+  </div>`;
+}
+
+function renderResults() {
+  const list = filtered(), el = $("#results");
+  if (!el) return;
+  $("#result-count").textContent = `${list.length} of ${SCHOLARSHIPS.length}`;
+  el.innerHTML = list.length
+    ? `<div class="rows">${list.map(s => sRow(s)).join("")}</div>`
+    : `<div class="empty"><p>Nothing matches these filters yet. Try removing one or two.</p><button class="btn btn-sm" type="button" data-action="reset-filters">Clear filters</button></div>`;
+}
+
+/* detail */
+function viewScholarship(id) {
+  const s = byId(id);
+  if (!s) return viewNotFound();
+  const u = me(), dt = nextDate(s.deadline), n = daysLeft(s);
+  const checks = (u && u.checks[s.id]) || [];
+  const done = checks.length, total = s.docs.length;
+  const related = s.guides.map(guideById).filter(Boolean);
+  return `
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="#scholarships">scholarships</a><span>/</span><span>${s.id}</span></nav>
+  <div class="detail">
+    <article>
+      <span class="label">${esc(COUNTRIES[s.country])} · ${LEVELS[s.level]}</span>
+      <h1 style="margin-top:14px">${esc(s.name)}</h1>
+      ${s.alt ? `<p class="alt">${esc(s.alt)} · ${esc(s.provider)}</p>` : `<p class="alt">${esc(s.provider)}</p>`}
+      <p class="summary">${esc(s.summary)}</p>
+
+      <div class="block"><h2>What it covers</h2><ul class="list">${s.covers.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>
+      <div class="block"><h2>Who can apply</h2><ul class="list">${s.eligibility.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>
+      <div class="block"><h2>How to apply</h2><ol class="olist">${s.steps.map(c => `<li><span>${esc(c)}</span></li>`).join("")}</ol></div>
+      <div class="block">
+        <div class="section-head" style="margin:0"><h2>Document checklist</h2><span class="mono muted" id="doc-count">${done}/${total}</span></div>
+        ${u ? "" : `<p class="note">Your ticks are saved to your dashboard. <a class="link" href="#signup" data-return="scholarship.${s.id}">Create a free account</a> to keep track.</p>`}
+        <ul class="list plain docs">${s.docs.map((d, i) => `<li><label class="check"><input type="checkbox" data-doc="${s.id}" value="${i}" ${checks.includes(i) ? "checked" : ""} ${u ? "" : "disabled"}><span>${esc(d)}</span></label></li>`).join("")}</ul>
+      </div>
+      ${s.note ? `<div class="block"><p class="note">${esc(s.note)}</p></div>` : ""}
+    </article>
+
+    <aside class="panel">
+      <div class="panel-sec">
+        <span class="label">Next deadline</span>
+        <div class="big-date">${fmtDate(dt)}</div>
+        ${clockHTML(s)}
+        <p class="hint">Counting down to 23:59 on the deadline day, your local time. This is a typical date from past cycles; applications usually open in ${s.opens}.</p>
+      </div>
+      <div class="panel-sec">
+        <dl class="facts">
+          <dt>Funding</dt><dd>${FUNDING[s.funding]}</dd>
+          <dt>Level</dt><dd>${LEVELS[s.level]}</dd>
+          <dt>Destination</dt><dd>${esc(COUNTRIES[s.country])}</dd>
+          <dt>Tests</dt><dd>${s.tests.length ? s.tests.join(", ") : "None required"}</dd>
+        </dl>
+      </div>
+      <div class="panel-sec">
+        <button class="btn ${u && u.saved.includes(s.id) ? "" : "btn-primary"}" type="button" data-save="${s.id}" data-wide aria-pressed="${!!(u && u.saved.includes(s.id))}" style="justify-content:center">${u && u.saved.includes(s.id) ? "Saved to dashboard ✓" : "Save to dashboard"}</button>
+        <a class="btn btn-blue" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="justify-content:center">Official website <span class="arrow">↗</span></a>
+        ${u && total ? `<div class="progress" aria-hidden="true"><i id="doc-bar" style="width:${Math.round(done / total * 100)}%"></i></div>` : ""}
+      </div>
+      ${related.length ? `<div class="panel-sec"><span class="label">Related guides</span><div class="mini">${related.map(g => `<a href="#guide.${g.id}"><span>${esc(g.title)}</span><span class="t">${g.mins} min</span></a>`).join("")}</div></div>` : ""}
+    </aside>
+  </div>`;
+}
+
+/* deadlines */
+function viewDeadlines() {
+  const u = me();
+  const mine = F.savedOnly && u;
+  const list = SCHOLARSHIPS.filter(s => !mine || u.saved.includes(s.id)).sort((a, b) => daysLeft(a) - daysLeft(b));
+  const groups = [];
+  list.forEach(s => {
+    const dt = nextDate(s.deadline), key = `${dt.getFullYear()}-${dt.getMonth()}`;
+    let g = groups.find(x => x.key === key);
+    if (!g) groups.push(g = { key, dt, items: [] });
+    g.items.push(s);
+  });
+  return `
+  <div class="page-head">
+    <span class="label">Deadlines</span>
+    <h1>Every deadline for the next twelve months</h1>
+    <p>Sorted by date and rolled forward to the next cycle. Save a scholarship to see it on your dashboard.</p>
+  </div>
+  <div class="toolbar" style="margin-top:0">
+    <div class="legend"><span class="l-urgent">within 3 weeks</span><span class="l-soon">within 2 months</span><span>later</span></div>
+    ${u ? `<label class="check"><input type="checkbox" data-action="deadlines-mine" ${F.savedOnly ? "checked" : ""}>Only my saved scholarships</label>` : ""}
+  </div>
+  ${groups.length ? groups.map(g => `
+    <section class="month">
+      <h2>${MONTHS_LONG[g.dt.getMonth()]}<small>${g.dt.getFullYear()} · ${g.items.length} ${g.items.length === 1 ? "deadline" : "deadlines"}</small></h2>
+      <div class="rows">${g.items.map(s => `
+        <div class="row drow">
+          <span class="day">${String(nextDate(s.deadline).getDate()).padStart(2, "0")}</span>
+          <div><a class="row-title" href="#scholarship.${s.id}">${esc(s.name)}</a><div class="row-sub">${esc(COUNTRIES[s.country])} · ${LEVEL_SHORT[s.level]} · ${FUNDING[s.funding].toLowerCase()}</div></div>
+          <div class="when">${countdown(s)}</div>
+          ${saveBtn(s)}
+        </div>`).join("")}
+      </div>
+    </section>`).join("") : `<div class="empty"><p>You have not saved any scholarships yet.</p><a class="btn btn-sm" href="#scholarships">Browse scholarships</a></div>`}`;
+}
+
+/* guides */
+function gRow(g) {
+  const u = me(), read = u && u.read.includes(g.id);
+  return `<div class="row grow">
+    <span class="label">${g.grade}</span>
+    <div><a class="row-title" href="#guide.${g.id}">${esc(g.title)}</a><div class="row-sub">${esc(g.summary)}</div></div>
+    <span class="${read ? "read-mark" : "t"}">${read ? "✓ read" : g.mins + " min"}</span>
+  </div>`;
+}
+
+function viewGuides() {
+  return `
+  <div class="page-head">
+    <span class="label">Guides</span>
+    <h1>Short guides for every step</h1>
+    <p>Written for high school students in Kazakhstan. Start with the roadmap, then read the others as you need them.</p>
+  </div>
+  <div class="rows">${GUIDES.map(gRow).join("")}</div>`;
+}
+
+function viewGuide(id) {
+  const g = guideById(id);
+  if (!g) return viewNotFound();
+  const u = me(), read = u && u.read.includes(g.id);
+  const idx = GUIDES.indexOf(g), next = GUIDES[(idx + 1) % GUIDES.length];
+  const uses = SCHOLARSHIPS.filter(s => s.guides.includes(g.id));
+  return `
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="#guides">guides</a><span>/</span><span>${g.id}</span></nav>
+  <div class="article">
+    <article>
+      <span class="label">${g.grade} · ${g.mins} min read</span>
+      <h1 style="margin-top:14px">${esc(g.title)}</h1>
+      <p class="muted" style="font-size:17px;margin-top:16px">${esc(g.summary)}</p>
+      <div class="prose">
+        ${g.body.map(([h, items]) => `<h2>${esc(h)}</h2>${items.length === 1 ? `<p>${md(items[0])}</p>` : `<ul>${items.map(i => `<li>${md(i)}</li>`).join("")}</ul>`}`).join("")}
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)">
+        <button class="btn ${read ? "" : "btn-primary"}" type="button" data-read="${g.id}">${read ? "Marked as read ✓" : "Mark as read"}</button>
+        <a class="btn" href="#guide.${next.id}">Next: ${esc(next.title)} <span class="arrow">→</span></a>
+      </div>
+    </article>
+    <aside class="aside">
+      ${uses.length ? `<div><span class="label">Useful for</span><div class="mini" style="margin-top:10px">${uses.map(s => `<a href="#scholarship.${s.id}"><span>${esc(s.name)}</span>${countdown(s)}</a>`).join("")}</div></div>` : ""}
+    </aside>
+  </div>`;
+}
+
+/* auth */
+function gradeSelect(id, cur) {
+  return `<select id="${id}" class="input">${Object.entries(GRADES).map(([k, v]) => `<option value="${k}" ${cur === k ? "selected" : ""}>${v}</option>`).join("")}</select>`;
+}
+
+/* sign-up wizard: 1 role · 2 birthday · 3 name and nickname · 4 email and password, then email confirmation */
+const ROLES = {
+  student: { title:"Student", desc:"I'm in high school and planning to study abroad" },
+  parent: { title:"Parent or family", desc:"I'm helping my child find a scholarship" },
+  teacher: { title:"Teacher or counsellor", desc:"I guide students through their applications" }
+};
+const STEP_NAMES = ["role", "birthday", "name", "account"];
+const THIS_YEAR = new Date().getFullYear();
+const YEARS = []; for (let y = THIS_YEAR - 8; y >= 1940; y--) YEARS.push(y);
+const ITEM = 40;
+const newSU = () => ({ step:1, role:"", dob:{ d:0, m:0, y:YEARS.indexOf(THIS_YEAR - 16) }, dobSet:false, name:"", nick:"", ownNick:false, seed:0, email:"" });
+let SU = newSU();
+
+const daysIn = (y, m) => new Date(y, m + 1, 0).getDate();
+const dobDate = () => new Date(YEARS[SU.dob.y], SU.dob.m, SU.dob.d + 1);
+function ageOn(dob) {
+  const t = today(); let a = t.getFullYear() - dob.getFullYear();
+  if (t.getMonth() < dob.getMonth() || (t.getMonth() === dob.getMonth() && t.getDate() < dob.getDate())) a--;
+  return a;
+}
+const fmtLong = dt => `${dt.getDate()} ${MONTHS_LONG[dt.getMonth()]} ${dt.getFullYear()}`;
+const guessGrade = age => age <= 15 ? "9" : age === 16 ? "10" : age === 17 ? "11" : "done";
+
+const TRANSLIT = { а:"a",ә:"a",б:"b",в:"v",г:"g",ғ:"g",д:"d",е:"e",ё:"yo",ж:"zh",з:"z",и:"i",й:"y",к:"k",қ:"q",л:"l",м:"m",н:"n",ң:"n",о:"o",ө:"o",п:"p",р:"r",с:"s",т:"t",у:"u",ұ:"u",ү:"u",ф:"f",х:"kh",һ:"h",ц:"ts",ч:"ch",ш:"sh",щ:"sh",ъ:"",ы:"y",і:"i",ь:"",э:"e",ю:"yu",я:"ya" };
+const slug = s => s.toLowerCase().split("").map(c => TRANSLIT[c] !== undefined ? TRANSLIT[c] : c).join("").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
+const NICK_RE = /^[a-z0-9](?:[a-z0-9._]{1,18})[a-z0-9]$/;
+const nickTaken = n => Object.values(allUsers()).some(u => u.nick === n);
+const cleanNick = s => s.toLowerCase().replace(/^@+/, "").replace(/\s+/g, "_").replace(/[^a-z0-9._]/g, "").slice(0, 20);
+
+function nickIdeas() {
+  const parts = SU.name.trim().split(/\s+/).map(slug).filter(Boolean);
+  if (!parts.length) return [];
+  const b = parts[0], last = parts[1] || "", yy = String(YEARS[SU.dob.y]).slice(2);
+  const words = ["abroad", "scholar", "talpyn", "steppe", "bound", "next", "dreams", "study"];
+  const pool = [];
+  words.forEach((w, i) => {
+    pool.push(`${b}.${w}`, `${b}_${w}`, `${w}.${b}`);
+    if (b.length > 4) pool.push(`${b.slice(0, 4)}.${w}`);
+    if (i === 3) pool.push(`${b}${yy}`, `${b}.${yy}`);
+  });
+  pool.push(last ? `${b}.${last}` : `the.${b}`);
+  if (last) pool.push(`${b}.${last[0]}`, `${b}_${last.slice(0, 3)}`);
+  const uniq = [...new Set(pool)].filter(n => NICK_RE.test(n) && !nickTaken(n));
+  const out = [], n = uniq.length;
+  for (let k = 0; out.length < Math.min(4, n); k++) { const c = uniq[(SU.seed * 4 + k * 7) % n]; if (!out.includes(c)) out.push(c); if (k > 50) break; }
+  return out;
+}
+
+function nickStatus(n) {
+  if (!n) return ["", "3–20 characters: letters, numbers, dots and underscores"];
+  if (!NICK_RE.test(n)) return ["bad", "Use 3–20 characters. Start and end with a letter or number."];
+  if (nickTaken(n)) return ["bad", `✕ @${n} is already taken. Try another one.`];
+  return ["ok", `✓ @${n} is available`];
+}
+
+function passHTML() {
+  const role = SU.role ? ROLES[SU.role].title : "";
+  const row = (k, v) => `<dt>${k}</dt><dd class="${v ? "" : "blank"}">${v ? esc(v) : "—"}</dd>`;
+  return `<div class="pass-head"><b>talpín<span class="caret">_</span></b><span class="label">${role ? esc(role.split(" ")[0].toLowerCase()) + " pass" : "your pass"}</span></div>
+    <div class="pass-nick"><span class="label">nickname</span><strong class="${SU.nick ? "" : "blank"}">@${SU.nick ? esc(SU.nick) : "your.name"}</strong></div>
+    <dl>
+      ${row("role", role.toLowerCase())}
+      ${row("born", SU.dobSet ? `${fmtLong(dobDate())} (${ageOn(dobDate())})` : "")}
+      ${row("name", SU.name.trim())}
+      ${row("email", SU.email)}
+      <dt>status</dt><dd class="blank">${SU.step > 4 ? "○ waiting for email" : `○ step ${SU.step} of 4`}</dd>
+    </dl>
+    <div class="pass-code" aria-hidden="true"></div>`;
+}
+const updatePass = () => { const p = $("#pass"); if (p) p.innerHTML = passHTML(); };
+
+const SU_TIPS = [
+  ["Did you know?", `talpín lists ${SCHOLARSHIPS.length} scholarships open to students from Kazakhstan, from Hungary to Harvard.`],
+  ["Why we ask", "Many scholarships have age limits. Türkiye Scholarships, for example, is for applicants under 21."],
+  ["Your nickname matters", "It's how talpín greets you and how others will see you. You can keep your full name private."],
+  ["Almost done", "We use your email to confirm your account and to let you log in. Nothing else."]
+];
+
+function wheel(id, label, items, sel) {
+  return `<div class="wheel-col"><span class="label" id="${id}-l">${label}</span>
+    <div class="wheel-wrap"><div class="wheel" id="${id}" tabindex="0" role="listbox" aria-labelledby="${id}-l">${wheelItems(items, sel)}</div></div></div>`;
+}
+const wheelItems = (items, sel) => items.map((t, i) => `<div class="wheel-item${i === sel ? " on" : ""}" role="option" aria-selected="${i === sel}" data-wi="${i}">${t}</div>`).join("");
+
+function suStep() {
+  const s = SU.step;
+  const back = s > 1 ? `<button class="back" type="button" data-action="su-back">← back</button>` : "";
+  const progress = `<div class="su-progress" aria-label="Step ${s} of 4">${STEP_NAMES.map((n, i) => `<div class="${i + 1 < s ? "done" : i + 1 === s ? "now" : ""}"><i></i>${i + 1 < s ? "✓ " : ""}${n}</div>`).join("")}</div>`;
+  const err = `<p class="error" id="su-error" hidden></p>`;
+
+  if (s === 1) return `${progress}
+    <h1>Sign up for talpín</h1>
+    <p class="sub">First, tell us who you are. We'll shape the site around you.</p>
+    ${flash ? `<p class="flash">${esc(flash)}</p>` : ""}
+    <div class="roles">${Object.entries(ROLES).map(([k, r]) => `<button class="role" type="button" data-role="${k}" aria-pressed="${SU.role === k}"><div><b>${r.title}</b><span>${r.desc}</span></div><span class="arrow">→</span></button>`).join("")}</div>
+    <p class="switch">Already have a talpín account? <a class="link" href="#login">Log in</a></p>`;
+
+  if (s === 2) {
+    const y = YEARS[SU.dob.y];
+    return `${back}${progress}
+    <h1>When is your birthday?</h1>
+    <p class="sub">Scroll each column to pick your day, month and year.</p>
+    <form id="su-form" data-step="2" novalidate>
+      <div class="wheels">
+        ${wheel("w-day", "day", Array.from({ length: daysIn(y, SU.dob.m) }, (_, i) => String(i + 1).padStart(2, "0")), SU.dob.d)}
+        ${wheel("w-month", "month", MONTHS_LONG, SU.dob.m)}
+        ${wheel("w-year", "year", YEARS, SU.dob.y)}
+      </div>
+      <p class="dob-readout" id="dob-readout" aria-live="polite"></p>
+      <div class="form">${err}<button class="btn btn-primary" type="submit" style="justify-content:center">Continue <span class="arrow">→</span></button></div>
+    </form>`;
+  }
+
+  if (s === 3) {
+    const [cls, msg] = nickStatus(SU.ownNick ? SU.nick : "");
+    return `${back}${progress}
+    <h1>What should we call you?</h1>
+    <p class="sub">Your real name stays private. Your nickname is what everyone sees.</p>
+    <form id="su-form" data-step="3" class="form" novalidate>
+      <div class="field"><label for="su-name">Your full name</label><input class="input" id="su-name" autocomplete="name" placeholder="Aruzhan Sadykova" value="${esc(SU.name)}" required></div>
+      <div class="nick-box">
+        <span class="label">★ Your nickname on talpín</span>
+        <div class="nick-big ${SU.nick ? "" : "blank"}" id="nick-big"><span class="at">@</span>${SU.nick ? esc(SU.nick) : "pick.one.below"}</div>
+        <p class="hint" style="color:var(--muted)">Choose carefully. It appears on your pass, your dashboard and anywhere you show up on talpín. Pick one of our ideas or write your own.</p>
+        <div class="chips" id="nick-chips" role="radiogroup" aria-label="Nickname ideas">${chipsHTML()}</div>
+        <div id="nick-own" ${SU.ownNick ? "" : "hidden"} class="field">
+          <label for="su-nick">Write your own</label>
+          <div class="prefix"><span>@</span><input id="su-nick" autocomplete="off" spellcheck="false" maxlength="20" placeholder="your.nickname" value="${SU.ownNick ? esc(SU.nick) : ""}"></div>
+          <span class="nick-status ${cls}" id="nick-status">${msg}</span>
+        </div>
+      </div>
+      ${err}
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Continue <span class="arrow">→</span></button>
+    </form>`;
+  }
+
+  return `${back}${progress}
+    <h1>Last step: secure your account</h1>
+    <p class="sub">We'll send a link to this email to confirm it's really you.</p>
+    <form id="su-form" data-step="4" class="form" novalidate>
+      <div class="field"><label for="su-email">Email</label><input class="input" id="su-email" type="email" autocomplete="email" placeholder="you@example.com" value="${esc(SU.email)}" required></div>
+      <div class="field"><label for="su-pass">Password</label><div class="pw-wrap"><input class="input" id="su-pass" type="password" autocomplete="new-password" required><button class="pw-toggle" type="button" data-action="toggle-pass" aria-label="Show passwords">show</button></div></div>
+      <div class="field"><label for="su-pass2">Confirm password</label><input class="input" id="su-pass2" type="password" autocomplete="new-password" required></div>
+      <ul class="rules" id="pw-rules"><li data-rule="len">at least 8 characters</li><li data-rule="mix">letters and at least one number</li><li data-rule="match">passwords match</li></ul>
+      ${err}
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Create account</button>
+      <p class="hint">Your account is stored in this browser only. Nothing is sent to a server.</p>
+    </form>`;
+}
+
+function chipsHTML() {
+  const ideas = nickIdeas();
+  const chips = ideas.map(n => `<button class="chip" type="button" role="radio" data-nick="${n}" aria-checked="${!SU.ownNick && SU.nick === n}">@${n}</button>`).join("");
+  return (ideas.length ? chips + `<button class="chip ghost" type="button" data-action="nick-more">↻ more ideas</button>` : `<span class="hint">Type your name above and we'll suggest a few.</span>`)
+    + `<button class="chip ghost" type="button" role="radio" data-action="nick-own" aria-checked="${SU.ownNick}">✎ write my own</button>`;
+}
+
+function viewSignup() {
+  const tip = SU_TIPS[Math.min(SU.step, 4) - 1];
+  return `
+  <section class="signup">
+    <div class="su-side">
+      <div class="pass" id="pass">${passHTML()}</div>
+      <p class="su-tip"><b>${tip[0]}</b>${esc(tip[1])}</p>
+    </div>
+    <div class="su-main">${suStep()}</div>
+  </section>`;
+}
+
+function pwRules() {
+  const p = ($("#su-pass") || {}).value || "", q = ($("#su-pass2") || {}).value || "";
+  const r = { len: p.length >= 8, mix: /[a-zA-Z]/.test(p) && /\d/.test(p), match: !!p && p === q };
+  document.querySelectorAll("#pw-rules li").forEach(li => li.classList.toggle("ok", r[li.dataset.rule]));
+  return r;
+}
+
+/* wheels */
+function initWheels() {
+  document.querySelectorAll(".wheel").forEach(w => { const on = w.querySelector(".on"); w.scrollTop = on ? Number(on.dataset.wi) * ITEM : 0; });
+  dobReadout();
+}
+function markWheel(w, i) {
+  [...w.children].forEach((c, k) => { c.classList.toggle("on", k === i); c.setAttribute("aria-selected", k === i); });
+}
+function settleWheel(w) {
+  const i = Math.max(0, Math.min(w.children.length - 1, Math.round(w.scrollTop / ITEM)));
+  markWheel(w, i);
+  const key = { "w-day":"d", "w-month":"m", "w-year":"y" }[w.id];
+  if (SU.dob[key] === i) return;
+  SU.dob[key] = i; SU.dobSet = true;
+  if (key !== "d") {
+    const n = daysIn(YEARS[SU.dob.y], SU.dob.m), dw = $("#w-day");
+    if (dw && dw.children.length !== n) {
+      SU.dob.d = Math.min(SU.dob.d, n - 1);
+      dw.innerHTML = wheelItems(Array.from({ length: n }, (_, k) => String(k + 1).padStart(2, "0")), SU.dob.d);
+      dw.scrollTop = SU.dob.d * ITEM;
+    }
+  }
+  dobReadout(); updatePass();
+}
+function dobReadout() {
+  const el = $("#dob-readout"); if (!el) return;
+  const dt = dobDate();
+  el.innerHTML = `<b>${fmtLong(dt)}</b> · you are ${ageOn(dt)}`;
+}
+const wheelTimers = {};
+document.addEventListener("scroll", e => {
+  const w = e.target;
+  if (!w.classList || !w.classList.contains("wheel")) return;
+  markWheel(w, Math.max(0, Math.min(w.children.length - 1, Math.round(w.scrollTop / ITEM))));
+  clearTimeout(wheelTimers[w.id]); wheelTimers[w.id] = setTimeout(() => settleWheel(w), 110);
+}, true);
+document.addEventListener("keydown", e => {
+  const w = e.target;
+  if (!w.classList || !w.classList.contains("wheel") || !["ArrowUp", "ArrowDown", "Home", "End"].includes(e.key)) return;
+  e.preventDefault();
+  const cur = Math.round(w.scrollTop / ITEM), last = w.children.length - 1;
+  const i = e.key === "Home" ? 0 : e.key === "End" ? last : Math.max(0, Math.min(last, cur + (e.key === "ArrowDown" ? 1 : -1)));
+  w.scrollTo({ top: i * ITEM, behavior: "smooth" });
+});
+
+/* confirmation */
+function pendingUser() { const e = store.get("talpin.pending", null); const u = e && allUsers()[e]; return u && u.verified === false ? u : null; }
+
+function viewConfirm() {
+  const u = pendingUser();
+  if (!u) return `<div class="page-head"><span class="label">Confirm email</span><h1>Nothing to confirm right now</h1><p>Your account may already be active.</p><div><a class="btn btn-primary" href="#login">Log in</a></div></div>`;
+  return `
+  <section class="auth" style="max-width:520px">
+    <div class="su-progress" aria-hidden="true">${STEP_NAMES.map(n => `<div class="done"><i></i>✓ ${n}</div>`).join("")}</div>
+    <span class="label" style="display:block;margin-top:32px">Almost there</span>
+    <h1 style="margin-top:12px">Confirm your email</h1>
+    <p class="muted" style="margin-top:12px;font-size:15.5px">We sent a confirmation link to <b style="color:var(--fg);font-weight:500">${esc(u.email)}</b>. Open it to activate your account. If you can't find it, check your spam folder.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+      <button class="btn btn-sm" type="button" data-action="resend" id="resend">Resend email</button>
+      <button class="btn btn-sm btn-ghost" type="button" data-action="change-email">Use a different email</button>
+    </div>
+    <div class="mail-tag"><span class="label">Demo inbox</span><span class="hint">Real email needs a server. Until then, the message appears here.</span></div>
+    <div class="mail" style="margin-top:10px">
+      <div class="mail-head"><span>from</span><span>talpín</span><span>to</span><span>${esc(u.email)}</span><span>subject</span><span>Confirm your talpín account</span></div>
+      <div class="mail-body">
+        <p>Sálem, @${esc(u.nick)}!</p>
+        <p class="muted">You're one click away from your talpín dashboard. Confirm your email to start saving scholarships and tracking deadlines.</p>
+        <a class="btn btn-primary" href="#verify.${u.token}">Confirm my email</a>
+        <p class="hint">If you didn't create this account, you can ignore this message.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function verify(token) {
+  const all = allUsers(), u = Object.values(all).find(x => x.token && x.token === token);
+  if (!u) return `<div class="page-head"><span class="label">Confirm email</span><h1>This link has already been used</h1><p>Your email may already be confirmed. Try logging in.</p><div><a class="btn btn-primary" href="#login">Log in</a></div></div>`;
+  u.verified = true; delete u.token; saveUser(u);
+  store.set(K.session, u.email); store.del("talpin.pending"); SU = newSU();
+  toast(`Email confirmed. Welcome to talpín, @${u.nick}!`);
+  const r = returnTo || "dashboard"; returnTo = "";
+  setTimeout(() => go(r), 0);
+  return "";
+}
+
+function viewLogin() {
+  return `
+  <section class="auth">
+    <span class="label">Log in</span>
+    <h1 style="margin-top:12px">Welcome back</h1>
+    ${flash ? `<p class="flash">${esc(flash)}</p>` : ""}
+    <form class="form" id="login-form" novalidate>
+      <div class="field"><label for="li-email">Email or nickname</label><input class="input" id="li-email" autocomplete="username" spellcheck="false" required></div>
+      <div class="field"><label for="li-pass">Password</label><input class="input" id="li-pass" type="password" autocomplete="current-password" required></div>
+      <p class="error" id="li-error" hidden></p>
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Log in</button>
+    </form>
+    <p class="switch">New here? <a class="link" href="#signup">Create an account</a></p>
+  </section>`;
+}
+
+/* dashboard */
+const isStudent = u => !u.role || u.role === "student";
+function recommend(u) {
+  const all = ["summer","exchange","ib","bachelor"];
+  const fit = isStudent(u) ? ({ "9":["summer","exchange"], "10":all, "11":["bachelor"], "done":["bachelor"], "uni":["bachelor"] }[u.grade] || ["bachelor"]) : all;
+  return SCHOLARSHIPS.filter(s => fit.includes(s.level) && !u.saved.includes(s.id)).sort((a, b) => daysLeft(a) - daysLeft(b)).slice(0, 4);
+}
+
+function viewDashboard() {
+  const u = me();
+  if (!u) { flash = "Log in to see your dashboard."; returnTo = "dashboard"; return viewLogin(); }
+  const saved = u.saved.map(byId).filter(Boolean).sort((a, b) => daysLeft(a) - daysLeft(b));
+  const nextUp = saved[0];
+  const docsDone = saved.reduce((n, s) => n + ((u.checks[s.id] || []).length), 0);
+  const docsTotal = saved.reduce((n, s) => n + s.docs.length, 0);
+  const unread = GUIDES.filter(g => !u.read.includes(g.id));
+  return `
+  <div class="dash-head">
+    <div class="dash-id">
+      <label class="pfp" data-hint="${u.avatar ? "Change" : "Add photo"}" title="${u.avatar ? "Change your photo" : "Add a profile photo"}">
+        ${avatarInner(u)}<input class="file-input" type="file" accept="image/*" data-avatar aria-label="${u.avatar ? "Change your profile photo" : "Add a profile photo"}">
+      </label>
+      <div>
+        <div class="dash-user">${u.nick ? `<span class="handle">@${esc(u.nick)}</span>` : ""}<a class="btn btn-sm" href="#profile">Profile</a></div>
+        <h1 style="margin-top:10px">Sálem, ${esc(firstName(u))}.</h1>
+      </div>
+    </div>
+    <a class="btn" href="#scholarships">Find more scholarships <span class="arrow">→</span></a>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="label">Saved</span><b>${saved.length}</b></div>
+    <div class="stat"><span class="label">Next deadline</span><b>${nextUp ? (daysLeft(nextUp) === 0 ? "today" : daysLeft(nextUp) + " days") : "—"}</b></div>
+    <div class="stat"><span class="label">Documents ready</span><b>${docsDone}/${docsTotal}</b></div>
+    <div class="stat"><span class="label">Guides read</span><b>${u.read.length}/${GUIDES.length}</b></div>
+  </div>
+
+  <div class="dash-grid">
+    <div>
+      <section class="section" style="padding-top:48px">
+        <div class="section-head"><h2>Your deadlines</h2><a class="link" href="#deadlines">Calendar view</a></div>
+        ${saved.length ? `<div class="rows">${saved.map(s => {
+          const d = (u.checks[s.id] || []).length, t = s.docs.length;
+          return `<div class="row dash-row">
+            <div><a class="row-title" href="#scholarship.${s.id}">${esc(s.name)}</a><div class="row-sub">${fmtDate(nextDate(s.deadline))} · ${countdown(s)}</div></div>
+            <div class="prog"><span>${d}/${t} documents</span><div class="progress"><i style="width:${Math.round(d / t * 100)}%"></i></div></div>
+            ${saveBtn(s)}
+          </div>`; }).join("")}</div>`
+          : `<div class="empty"><p>Nothing saved yet. Open any scholarship and press Save to track it here.</p><a class="btn btn-sm btn-primary" href="#scholarships">Browse scholarships</a></div>`}
+      </section>
+
+      <section class="section" style="padding-top:56px">
+        <div class="section-head"><h2>Picked for you</h2><span class="hint">${isStudent(u) ? `Based on: ${GRADES[u.grade] || "your grade"}` : "Closing soonest"}</span></div>
+        ${recommend(u).length ? `<div class="rows">${recommend(u).map(s => sRow(s, { compact: true })).join("")}</div>` : `<p class="muted">You have saved everything we would suggest. Nice work.</p>`}
+      </section>
+    </div>
+
+    <aside>
+      <section class="section" style="padding-top:48px">
+        <div class="section-head"><h2>Guides</h2></div>
+        ${unread.length ? `<a class="btn btn-sm" href="#guide.${unread[0].id}" style="margin-bottom:14px">Continue: ${esc(unread[0].title.length > 28 ? unread[0].title.slice(0, 27) + "…" : unread[0].title)}</a>` : `<p class="read-mark" style="margin-bottom:14px">✓ You have read every guide</p>`}
+        <div class="mini">${GUIDES.map(g => `<a href="#guide.${g.id}"><span>${esc(g.title)}</span><span class="${u.read.includes(g.id) ? "read-mark" : "t"}">${u.read.includes(g.id) ? "✓" : g.mins + "m"}</span></a>`).join("")}</div>
+      </section>
+    </aside>
+  </div>`;
+}
+
+function viewProfile() {
+  const u = me();
+  if (!u) { flash = "Log in to edit your profile."; returnTo = "profile"; return viewLogin(); }
+  const maxDob = `${THIS_YEAR - 8}-12-31`;
+  return `
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="#dashboard">dashboard</a><span>/</span><span>profile</span></nav>
+  <div class="profile">
+    <aside class="profile-card">
+      <label class="pfp" id="profile-pfp" data-hint="${u.avatar ? "Change" : "Add photo"}">
+        ${avatarInner(u)}<input class="file-input" type="file" accept="image/*" data-avatar aria-label="${u.avatar ? "Change your profile photo" : "Add a profile photo"}">
+      </label>
+      <div class="who"><b>${esc(u.name)}</b>${u.nick ? `<span class="mono muted">@${esc(u.nick)}</span>` : ""}</div>
+      <div class="actions">
+        <label class="btn btn-sm" style="cursor:pointer">${u.avatar ? "Change photo" : "Upload photo"}<input class="file-input" type="file" accept="image/*" data-avatar></label>
+        ${u.avatar ? `<button class="btn btn-sm btn-ghost" type="button" data-action="remove-avatar">Remove</button>` : ""}
+      </div>
+      <p class="hint">JPG, PNG or WebP. We crop it to a 100 × 100 px square from the centre.</p>
+    </aside>
+
+    <div class="profile-forms">
+      <form class="pform" id="profile-form" novalidate>
+        <h2>Your details</h2>
+        <div class="field"><label for="pf-name">Full name</label><input class="input" id="pf-name" autocomplete="name" value="${esc(u.name)}" required></div>
+        <div class="field"><label for="pf-nick">Nickname</label>
+          <div class="prefix"><span>@</span><input id="pf-nick" autocomplete="off" spellcheck="false" maxlength="20" value="${esc(u.nick || "")}"></div>
+          <span class="nick-status" id="pf-nick-status">Others see this name. 3–20 letters, numbers, dots or underscores.</span>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="pf-dob">Birthday</label><input class="input" id="pf-dob" type="date" min="1940-01-01" max="${maxDob}" value="${esc(u.dob || "")}"></div>
+          ${isStudent(u) ? `<div class="field"><label for="pf-grade">Grade</label>${gradeSelect("pf-grade", u.grade)}</div>` : `<div class="field"><label>Account</label><div class="readonly">${u.role ? ROLES[u.role].title : "Student"}</div></div>`}
+        </div>
+        <div class="field"><label>Email</label><div class="readonly">${esc(u.email)}</div><span class="hint">You can't change your email yet, because it's how your account was confirmed.</span></div>
+        <p class="error" id="pf-error" hidden></p>
+        <div><button class="btn btn-primary" type="submit">Save changes</button></div>
+      </form>
+
+      <form class="pform" id="password-form" novalidate>
+        <h2>Password</h2>
+        <div class="field"><label for="pw-current">Current password</label><input class="input" id="pw-current" type="password" autocomplete="current-password"></div>
+        <div class="row2">
+          <div class="field"><label for="pw-new">New password</label><input class="input" id="pw-new" type="password" autocomplete="new-password"></div>
+          <div class="field"><label for="pw-new2">Confirm new password</label><input class="input" id="pw-new2" type="password" autocomplete="new-password"></div>
+        </div>
+        <span class="hint">At least 8 characters, with letters and at least one number.</span>
+        <p class="error" id="pw-error" hidden></p>
+        <div><button class="btn" type="submit">Change password</button></div>
+      </form>
+
+      <div class="pform">
+        <h2>Account</h2>
+        <p class="hint">Your account and progress are stored in this browser only.</p>
+        <div><button class="btn btn-sm" type="button" data-action="logout">Log out</button></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function viewNotFound() {
+  return `<div class="page-head"><span class="label">404</span><h1>We could not find that page</h1><p>It may have moved. Try the scholarship list instead.</p><div><a class="btn btn-primary" href="#scholarships">Browse scholarships</a></div></div>`;
+}
+
+/* ───────────── router ───────────── */
+
+const app = $("#app");
+let lastPage = "";
+
+function header() {
+  const u = me();
+  $("#head-actions").innerHTML = `
+    <button class="icon-btn" type="button" data-action="theme" aria-label="Switch theme" title="Switch theme">${ICON.theme}</button>
+    ${u
+      ? `<a class="btn btn-sm btn-ghost" href="#dashboard">Dashboard</a><a class="avatar" href="#profile" aria-label="Profile for ${esc(u.name)}" title="${u.nick ? "@" + esc(u.nick) : esc(u.name)}">${avatarInner(u)}</a>`
+      : `<a class="btn btn-sm btn-ghost" href="#login">Log in</a><a class="btn btn-sm btn-primary" href="#signup">Sign up</a>`}`;
+}
+
+function route() {
+  const h = decodeURIComponent(location.hash.replace(/^#/, "")) || "home";
+  const dot = h.indexOf(".");
+  return dot === -1 ? { page: h, id: "" } : { page: h.slice(0, dot), id: h.slice(dot + 1) };
+}
+
+function render() {
+  const { page, id } = route();
+  const views = {
+    home: [viewHome, "Scholarships for students in Kazakhstan"],
+    scholarships: [viewCatalog, "Scholarships"],
+    scholarship: [() => viewScholarship(id), (byId(id) || {}).name],
+    deadlines: [viewDeadlines, "Deadlines"],
+    guides: [viewGuides, "Guides"],
+    guide: [() => viewGuide(id), (guideById(id) || {}).title],
+    signup: [viewSignup, "Sign up"],
+    confirm: [viewConfirm, "Confirm your email"],
+    verify: [() => verify(id), "Confirming"],
+    login: [viewLogin, "Log in"],
+    dashboard: [viewDashboard, "Dashboard"],
+    profile: [viewProfile, "Profile"]
+  };
+  const [view, title] = views[page] || [viewNotFound, "Not found"];
+  if (me() && (page === "login" || page === "signup")) { location.hash = "dashboard"; return; }
+  header();
+  app.innerHTML = view();
+  flash = "";
+  document.title = `${title || "Not found"} · talpín`;
+  document.querySelectorAll("[data-nav]").forEach(a => a.toggleAttribute("aria-current", false));
+  const navKey = { scholarship: "scholarships", guide: "guides" }[page] || page;
+  const navEl = document.querySelector(`[data-nav="${navKey}"]`);
+  if (navEl) navEl.setAttribute("aria-current", "page");
+  if (page === "scholarships") renderResults();
+  if (page === "signup" && SU.step === 2) initWheels();
+  clearInterval(clockTimer); clockTimer = null;
+  if (document.getElementById("clock")) { tickClock(); clockTimer = setInterval(tickClock, 1000); }
+  const key = page + "." + id + (page === "signup" ? "." + SU.step : "");
+  if (key !== lastPage) { window.scrollTo(0, 0); lastPage = key; }
+}
+
+function go(h) { if (location.hash === "#" + h) render(); else location.hash = h; }
+
+/* ───────────── events ───────────── */
+
+function toggleSave(id) {
+  const u = me();
+  if (!u) { flash = "Create a free account to save scholarships and track their deadlines."; returnTo = location.hash.slice(1) || "scholarships"; go("signup"); return; }
+  const i = u.saved.indexOf(id);
+  if (i === -1) { u.saved.push(id); toast("Saved to your dashboard"); } else { u.saved.splice(i, 1); toast("Removed from your dashboard"); }
+  saveUser(u);
+  const y = window.scrollY; render(); window.scrollTo(0, y);
+}
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-save],[data-action],[data-read],[data-return]");
+  if (!t) return;
+  if (t.dataset.return) { returnTo = t.dataset.return; return; }
+  if (t.dataset.save) { e.preventDefault(); toggleSave(t.dataset.save); return; }
+  if (t.dataset.read) {
+    const u = me();
+    if (!u) { flash = "Create a free account to keep track of the guides you have read."; returnTo = "guide." + t.dataset.read; go("signup"); return; }
+    const i = u.read.indexOf(t.dataset.read);
+    if (i === -1) { u.read.push(t.dataset.read); toast("Marked as read"); } else u.read.splice(i, 1);
+    saveUser(u); const y = window.scrollY; render(); window.scrollTo(0, y); return;
+  }
+  const a = t.dataset.action;
+  if (a === "theme") {
+    const root = document.documentElement;
+    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next); store.set(K.theme, next);
+  } else if (a === "reset-filters") {
+    F = defaults(); persistF(); render();
+  } else if (a === "toggle-filters") {
+    const f = $("#filters"), open = f.classList.toggle("open"); t.setAttribute("aria-expanded", open);
+  } else if (a === "logout") {
+    store.del(K.session); toast("Logged out. See you soon!"); go("home");
+  }
+});
+
+document.addEventListener("input", e => {
+  const t = e.target;
+  if (t.id === "q") { F.q = t.value; persistF(); renderResults(); }
+  if (t.id === "su-name") { SU.name = t.value; $("#nick-chips").innerHTML = chipsHTML(); updatePass(); }
+  if (t.id === "su-nick") {
+    const v = cleanNick(t.value); if (v !== t.value) t.value = v;
+    SU.nick = v; setNickBig();
+    const [cls, msg] = nickStatus(v), st = $("#nick-status"); st.className = "nick-status " + cls; st.textContent = msg;
+    updatePass();
+  }
+  if (t.id === "su-email") { SU.email = t.value.trim(); updatePass(); }
+  if (t.id === "su-pass" || t.id === "su-pass2") pwRules();
+});
+
+function setNickBig() {
+  const b = $("#nick-big"); if (!b) return;
+  b.className = "nick-big" + (SU.nick ? "" : " blank");
+  b.innerHTML = `<span class="at">@</span>${SU.nick ? esc(SU.nick) : "pick.one.below"}`;
+}
+
+/* sign-up clicks */
+let resendAt = 0;
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-role],[data-nick],[data-wi],[data-action]");
+  if (!t) return;
+  if (t.dataset.role) { SU.role = t.dataset.role; SU.step = 2; render(); return; }
+  if (t.dataset.wi !== undefined) { t.parentElement.scrollTo({ top: Number(t.dataset.wi) * ITEM, behavior: "smooth" }); return; }
+  if (t.dataset.nick) { SU.nick = t.dataset.nick; SU.ownNick = false; $("#nick-own").hidden = true; $("#nick-chips").innerHTML = chipsHTML(); setNickBig(); updatePass(); return; }
+  const a = t.dataset.action;
+  if (a === "su-back") { SU.step--; render(); }
+  else if (a === "nick-more") { SU.seed++; $("#nick-chips").innerHTML = chipsHTML(); }
+  else if (a === "nick-own") {
+    SU.ownNick = true; $("#nick-own").hidden = false; $("#nick-chips").innerHTML = chipsHTML();
+    const inp = $("#su-nick"); inp.value = SU.nick; inp.focus(); inp.dispatchEvent(new Event("input", { bubbles: true }));
+  }
+  else if (a === "toggle-pass") {
+    const show = $("#su-pass").type === "password";
+    ["#su-pass", "#su-pass2"].forEach(s => { $(s).type = show ? "text" : "password"; });
+    t.textContent = show ? "hide" : "show"; t.setAttribute("aria-label", show ? "Hide passwords" : "Show passwords");
+  }
+  else if (a === "resend") {
+    const u = pendingUser(); if (!u) return;
+    const wait = Math.ceil((resendAt - Date.now()) / 1000);
+    if (wait > 0) { toast(`You can resend in ${wait} seconds`); return; }
+    resendAt = Date.now() + 30000; toast(`We sent the link again to ${u.email}`);
+  }
+  else if (a === "change-email") {
+    const u = pendingUser(); if (!u) return;
+    const all = allUsers(); delete all[u.email]; store.set(K.users, all); store.del("talpin.pending");
+    const dt = new Date(u.dob + "T00:00:00");
+    SU = Object.assign(newSU(), { step: 4, role: u.role, name: u.name, nick: u.nick, ownNick: true, dobSet: true, email: "",
+      dob: { d: dt.getDate() - 1, m: dt.getMonth(), y: Math.max(0, YEARS.indexOf(dt.getFullYear())) } });
+    go("signup");
+  }
+});
+
+document.addEventListener("change", e => {
+  const t = e.target;
+  if (t.closest("#filters")) {
+    if (t.name === "funding" || t.name === "within") F[t.name] = t.value;
+    else if (t.name === "levels" || t.name === "countries") F[t.name] = [...document.querySelectorAll(`#filters input[name="${t.name}"]:checked`)].map(x => x.value);
+    else if (t.name === "noSat" || t.name === "savedOnly") F[t.name] = t.checked;
+    persistF(); renderResults(); return;
+  }
+  if (t.id === "sort") { F.sort = t.value; persistF(); renderResults(); return; }
+  if (t.dataset.action === "deadlines-mine") { F.savedOnly = t.checked; persistF(); render(); return; }
+  if (t.id === "grade") { const u = me(); u.grade = t.value; saveUser(u); toast("Grade updated"); const y = window.scrollY; render(); window.scrollTo(0, y); return; }
+  if (t.dataset.doc) {
+    const u = me(); if (!u) return;
+    const s = byId(t.dataset.doc);
+    u.checks[s.id] = [...document.querySelectorAll(`input[data-doc="${s.id}"]:checked`)].map(x => Number(x.value));
+    if (!u.saved.includes(s.id)) { u.saved.push(s.id); toast("Saved to your dashboard"); }
+    saveUser(u);
+    const done = u.checks[s.id].length;
+    $("#doc-count").textContent = `${done}/${s.docs.length}`;
+    const bar = $("#doc-bar"); if (bar) bar.style.width = Math.round(done / s.docs.length * 100) + "%";
+  }
+});
+
+document.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (e.target.id === "su-form") {
+    const step = Number(e.target.dataset.step), err = $("#su-error");
+    const fail = m => { err.textContent = m; err.hidden = false; };
+    if (step === 2) {
+      document.querySelectorAll(".wheel").forEach(w => { clearTimeout(wheelTimers[w.id]); settleWheel(w); });
+      const age = ageOn(dobDate());
+      if (!SU.dobSet) return fail("Scroll the columns to pick your birthday first.");
+      if (SU.role === "student" && age < 13) return fail("You need to be 13 or older to create your own account. Ask a parent to sign up with the Parent option.");
+      if (SU.role !== "student" && age < 18) return fail(`${ROLES[SU.role].title} accounts are for adults. Go back and choose Student instead.`);
+      SU.step = 3; render(); return;
+    }
+    if (step === 3) {
+      if (!SU.name.trim()) return fail("Please enter your name.");
+      if (!SU.nick) return fail("Pick a nickname, or write your own.");
+      const [cls, msg] = nickStatus(SU.nick);
+      if (cls === "bad") return fail(msg.replace(/^✕ /, ""));
+      SU.step = 4; render(); return;
+    }
+    if (step === 4) {
+      const email = SU.email.trim().toLowerCase(), pass = $("#su-pass").value, r = pwRules();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("That email address does not look right. Check it and try again.");
+      if (allUsers()[email]) return fail("An account with this email already exists. Log in instead.");
+      if (!r.len || !r.mix) return fail("Your password needs at least 8 characters, with letters and at least one number.");
+      if (!r.match) return fail("The two passwords don't match. Type them again.");
+      const salt = Math.random().toString(36).slice(2, 12), dt = dobDate(), age = ageOn(dt);
+      const dob = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`;
+      saveUser({ name: SU.name.trim(), nick: SU.nick, role: SU.role, dob, email, grade: SU.role === "student" ? guessGrade(age) : "",
+        salt, hash: await hash(pass, salt), verified: false, token: Math.random().toString(36).slice(2) + Date.now().toString(36),
+        created: Date.now(), saved: [], checks: {}, read: [] });
+      store.set("talpin.pending", email);
+      SU = newSU();
+      go("confirm");
+    }
+  }
+  if (e.target.id === "login-form") {
+    const id = $("#li-email").value.trim().toLowerCase().replace(/^@/, ""), pass = $("#li-pass").value;
+    const err = $("#li-error"), all = allUsers(), u = all[id] || Object.values(all).find(x => x.nick === id);
+    if (!u || u.hash !== await hash(pass, u.salt)) { err.textContent = "The email, nickname or password is incorrect. Try again, or create a new account."; err.hidden = false; return; }
+    if (u.verified === false) {
+      store.set("talpin.pending", u.email);
+      err.innerHTML = `Confirm your email first. We sent a link to ${esc(u.email)}. <a class="link" href="#confirm">Open the confirmation email</a>`;
+      err.hidden = false; return;
+    }
+    const email = u.email;
+    store.set(K.session, email);
+    toast(`Welcome back, ${firstName(u)}!`);
+    const r = returnTo || "dashboard"; returnTo = ""; go(r);
+  }
+});
+
+/* profile photo + profile page */
+const rerenderInPlace = () => { const y = window.scrollY; render(); window.scrollTo(0, y); };
+document.addEventListener("change", async e => {
+  const t = e.target;
+  if (!t.matches || !t.matches("input[data-avatar]")) return;
+  const u = me(), file = t.files && t.files[0];
+  if (!u || !file) return;
+  try {
+    const had = !!u.avatar;
+    u.avatar = await toSquare100(file);
+    saveUser(u); toast(had ? "Photo updated" : "Photo added");
+    rerenderInPlace();
+  } catch (err) { toast(err.message); t.value = ""; }
+});
+document.addEventListener("click", e => {
+  const t = e.target.closest('[data-action="remove-avatar"]');
+  if (!t) return;
+  const u = me(); if (!u) return;
+  delete u.avatar; saveUser(u); toast("Photo removed"); rerenderInPlace();
+});
+const nickFree = (n, self) => !Object.values(allUsers()).some(x => x.nick === n && x.email !== self.email);
+document.addEventListener("input", e => {
+  if (e.target.id !== "pf-nick") return;
+  const u = me(), inp = e.target, v = cleanNick(inp.value); if (v !== inp.value) inp.value = v;
+  const st = $("#pf-nick-status");
+  if (!NICK_RE.test(v)) { st.className = "nick-status bad"; st.textContent = "Use 3–20 characters. Start and end with a letter or number."; }
+  else if (v === u.nick) { st.className = "nick-status"; st.textContent = "This is your current nickname."; }
+  else if (!nickFree(v, u)) { st.className = "nick-status bad"; st.textContent = `✕ @${v} is already taken. Try another one.`; }
+  else { st.className = "nick-status ok"; st.textContent = `✓ @${v} is available`; }
+});
+document.addEventListener("submit", async e => {
+  const id = e.target.id;
+  if (id !== "profile-form" && id !== "password-form") return;
+  e.preventDefault();
+  const u = me(); if (!u) return;
+  if (id === "profile-form") {
+    const err = $("#pf-error"), fail = m => { err.textContent = m; err.hidden = false; };
+    const name = $("#pf-name").value.trim(), nick = cleanNick($("#pf-nick").value), dob = $("#pf-dob").value;
+    if (!name) return fail("Enter your full name.");
+    if (!NICK_RE.test(nick)) return fail("Your nickname needs 3–20 characters and must start and end with a letter or number.");
+    if (!nickFree(nick, u)) return fail(`@${nick} is already taken. Choose another nickname.`);
+    if (dob) {
+      const age = ageOn(new Date(dob + "T00:00:00"));
+      if (isNaN(age) || age > 100) return fail("That birthday doesn't look right. Check the year.");
+      if (isStudent(u) && age < 13) return fail("Students need to be 13 or older to have an account.");
+      if (!isStudent(u) && age < 18) return fail(`${u.role ? ROLES[u.role].title : "This"} accounts are for adults.`);
+      u.dob = dob;
+    }
+    u.name = name; u.nick = nick;
+    const g = $("#pf-grade"); if (g) u.grade = g.value;
+    saveUser(u); toast("Profile saved"); rerenderInPlace();
+  } else {
+    const err = $("#pw-error"), fail = m => { err.textContent = m; err.hidden = false; };
+    const cur = $("#pw-current").value, nw = $("#pw-new").value, nw2 = $("#pw-new2").value;
+    if (u.hash !== await hash(cur, u.salt)) return fail("Your current password is incorrect.");
+    if (nw.length < 8 || !/[a-zA-Z]/.test(nw) || !/\d/.test(nw)) return fail("Your new password needs at least 8 characters, with letters and at least one number.");
+    if (nw !== nw2) return fail("The new passwords don't match. Type them again.");
+    u.salt = Math.random().toString(36).slice(2, 12); u.hash = await hash(nw, u.salt);
+    saveUser(u); toast("Password changed"); rerenderInPlace();
+  }
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) {
+    const q = $("#q"); if (q) { e.preventDefault(); q.focus(); }
+  }
+});
+
+window.addEventListener("hashchange", render);
+
+const savedTheme = store.get(K.theme, null);
+if (savedTheme && !document.documentElement.hasAttribute("data-theme")) document.documentElement.setAttribute("data-theme", savedTheme);
+render();
+})();
+</script>

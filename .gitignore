@@ -1,0 +1,5 @@
+# macOS folder metadata
+.DS_Store
+
+# Personal Claude Code overrides (shared settings live in .claude/settings.json)
+.claude/settings.local.json
