@@ -6,6 +6,9 @@ Website that helps high school students in Kazakhstan find scholarships abroad, 
 
 - `talpin/index.html`: the whole site in one file (HTML, CSS and JavaScript, no build step). Hash routing: `#home`, `#scholarships`, `#scholarship.<id>`, `#deadlines`, `#guides`, `#guide.<id>`, `#signup`, `#confirm`, `#verify.<token>`, `#login`, `#dashboard`, `#profile`.
 - `talpin/garden-snake.html`: a separate little game, not part of the site.
+- `index.html` at the top only forwards visitors to `talpin/` (keeping any `#route`).
+- Public site: https://telidaa.github.io/talpin/ (GitHub Pages from `main`, repo https://github.com/telidaa/talpin). Pushing to `main` updates it within a minute or two. The `gh` CLI lives at `~/.local/bin/gh` (not on PATH) and is signed in as telidaa.
+- This repo signs commits with GitHub's private noreply address (`git config user.email`), so the public history never shows a personal email. Keep it that way.
 - Published copy (private artifact): https://claude.ai/artifact/C91zWgja63WGRoNuAFFDQr. Republish there after every change, never to a new URL.
 - Figma: "talpín — website" (key `tW2E890uXJLOYOoU2XPF0T`) holds the design system and 8 desktop screens. The user wants future Figma work done in their own file "Adilet" (key `pMZyUOx9dadzgIT9SwWEGQ`). The team is on Figma's free Starter plan: 3 pages per file, 1 variable mode, and a monthly cap on MCP calls, so batch Figma work into few large calls.
 
@@ -29,6 +32,6 @@ Website that helps high school students in Kazakhstan find scholarships abroad, 
 ## Checking changes
 
 - This Mac has Apple's command line tools (so `git` and a real `python3`) but no Node. To run JavaScript outside the browser, use macOS's built-in engine: `osascript -l JavaScript`.
-- The folder is a Git repository on `main`. Commit after each finished change with a short message that says what changed for visitors (for example "Add live deadline countdown").
+- The folder is a Git repository on `main`. Commit after each finished change with a short message that says what changed for visitors (for example "Add live deadline countdown"), then `git push` so the public site updates.
 - A project hook (`.claude/settings.json` → `.claude/hooks/check-html-js.sh`) syntax-checks the inline `<script>` of any `.html` file after each edit and reports parse errors back.
 - To click through the site in the browser pane: open the file (it loads as a `data:` snapshot whose `#hash` can't change), then load the same HTML into a full-size `<iframe srcdoc>` and drive it by setting `contentWindow.location.hash`. Don't click `href="#…"` links inside that iframe; they escape to the parent URL. `localStorage` is blocked there, so state lasts only for that page.
