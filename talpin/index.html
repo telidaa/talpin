@@ -5,7 +5,7 @@
 <meta name="description" content="Scholarships, guides and deadlines for high school students in Kazakhstan who want to study abroad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Unbounded:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Roboto:wght@400;500;700&family=Unbounded:wght@300;400;500&display=swap">
 <style>
 /* Layout: one 1080px column; hairline-separated lists instead of cards; mono for every date, count and code. Dark by default, light on request. */
 :root{
@@ -15,6 +15,7 @@
   --font-display:"Unbounded","Geist",ui-sans-serif,system-ui,sans-serif;
   --font-body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --font-alt:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
   --r:6px; --wrap:1080px;
   color-scheme:dark;
 }
@@ -33,7 +34,8 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
 h1,h2,h3{text-wrap:balance;margin:0;font-weight:500}
 p{margin:0}
-.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+.wrap{max-width:none;margin-inline:0;padding-inline:clamp(16px,10.4167vw,150px)}
+@media (max-width:720px){.wrap{padding-inline:16px}}
 .mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
 .label{font:500 11px/1.4 var(--font-mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
 .muted{color:var(--muted)}
@@ -97,17 +99,34 @@ hr{border:0;border-top:1px solid var(--line);margin:0}
 .hero h1{font:400 clamp(34px,5.6vw,58px)/1.06 var(--font-display);letter-spacing:-.03em;margin-top:18px}
 .hero .lead{font-size:17px;color:var(--muted);margin-top:22px;max-width:52ch}
 .hero .ctas{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
-.term{border:1px solid var(--line);border-radius:10px;background:var(--surface);font:13px/1.75 var(--font-mono);overflow:hidden;min-width:0}
-.term-bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line)}
-.term-bar i{width:9px;height:9px;border-radius:50%;background:var(--raise);border:1px solid var(--line)}
-.term-body{padding:16px 18px 18px;overflow-x:auto}
-.term-body .cmd{color:var(--fg)}
-.term-body .cmd b{color:var(--accent);font-weight:400}
-.term-line{display:grid;grid-template-columns:7ch minmax(0,1fr) 7ch;gap:12px;color:var(--muted);text-decoration:none;white-space:nowrap}
-.term-line span:nth-child(2){overflow:hidden;text-overflow:ellipsis;color:var(--fg)}
-.term-line:hover span:nth-child(2){text-decoration:underline;text-underline-offset:3px}
-.term-line .t{text-align:right}
-.term-foot{color:var(--faint);margin-top:10px}
+.soon{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden;font-family:var(--font-alt);min-width:0}
+.soon-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.soon-head h2{font:500 17px/1.2 var(--font-alt);letter-spacing:0}
+.soon-head a{font:400 14px var(--font-alt);color:var(--muted)}
+.soon-row{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:18px;align-items:center;padding:14px 22px;text-decoration:none;border-top:1px solid var(--line)}
+.soon-row:first-child{border-top:0}
+.soon-row:hover{background:var(--raise)}
+.soon-date{display:grid;justify-items:center;line-height:1}
+.soon-date b{font:500 24px/1 var(--font-alt);font-variant-numeric:tabular-nums}
+.soon-date span{font:500 11px/1 var(--font-alt);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.soon-name{display:block;font:500 15px/1.35 var(--font-alt);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.soon-sub{display:block;font:400 13px/1.4 var(--font-alt);color:var(--muted);margin-top:2px}
+.soon-left{font:500 14px/1 var(--font-alt);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.soon-left.urgent{color:var(--warn)}
+.soon-left.soon{color:var(--accent);border:0;background:none;border-radius:0}
+.soon-foot{padding:12px 22px;border-top:1px solid var(--line);font:400 13px var(--font-alt);color:var(--faint)}
+/* student reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.review{margin:0;padding:30px 36px 8px 0;display:grid;gap:22px;align-content:start;font-family:var(--font-alt)}
+.review + .review{padding-left:36px;border-left:1px solid var(--line)}
+.review blockquote{margin:0;font:400 18px/1.6 var(--font-alt);color:var(--fg)}
+.review figcaption{display:flex;align-items:center;gap:12px}
+.review .who-pic{width:44px;height:44px;border-radius:50%;background:var(--raise);border:1px solid var(--line);display:grid;place-items:center;font:500 15px var(--font-alt);color:var(--muted);flex:none}
+.review b{display:block;font:500 15px/1.3 var(--font-alt)}
+.review small{display:block;font:400 13px/1.45 var(--font-alt);color:var(--muted)}
+.review .won{justify-self:start;font:500 12px/1 var(--font-alt);color:var(--ok);border:1px solid var(--line);border-radius:999px;padding:6px 10px}
+.placeholder-note{font:400 13px var(--font-alt);color:var(--faint)}
+@media (max-width:860px){.reviews{grid-template-columns:1fr}.review + .review{padding-left:0;border-left:0;border-top:1px solid var(--line)}.review{padding-right:0;padding-bottom:24px}}
 @media (max-width:860px){.hero{grid-template-columns:1fr;gap:40px}}
 
 /* steps */
@@ -732,7 +751,13 @@ function sRow(s, opts = {}) {
 
 function viewHome() {
   const next = [...SCHOLARSHIPS].sort((a, b) => daysLeft(a) - daysLeft(b)).slice(0, 5);
-  const lines = next.map(s => `<a class="term-line" href="#scholarship.${s.id}"><span>${MONTHS[nextDate(s.deadline).getMonth()].toLowerCase()} ${String(nextDate(s.deadline).getDate()).padStart(2, " ")}</span><span>${esc(s.name.toLowerCase())}</span>${countdown(s)}</a>`).join("");
+  const lines = next.map(s => { const d = nextDate(s.deadline), n = daysLeft(s);
+    return `<a class="soon-row" href="#scholarship.${s.id}"><span class="soon-date"><b>${d.getDate()}</b><span>${MONTHS[d.getMonth()]}</span></span><span><span class="soon-name">${esc(s.name)}</span><span class="soon-sub">${esc(COUNTRIES[s.country])} · ${LEVEL_SHORT[s.level]}</span></span><span class="soon-left ${urgency(n)}">${n === 0 ? "Today" : n === 1 ? "1 day" : n + " days"}</span></a>`; }).join("");
+  const REVIEWS = [
+    ["A", "Grade 11 · Almaty", "Türkiye Scholarships"],
+    ["D", "Grade 11 · Astana", "Global Korea Scholarship"],
+    ["M", "Finished school · Shymkent", "Stipendium Hungaricum"]
+  ];
   const starters = ["roadmap", "english-tests", "documents"].map(guideById);
   return `
   <section class="hero">
@@ -745,13 +770,10 @@ function viewHome() {
         <a class="btn" href="#guides">Read the guides</a>
       </div>
     </div>
-    <div class="term" aria-label="Next five deadlines">
-      <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="term-body">
-        <div class="cmd"><b>$</b> talpin deadlines --next 5</div>
-        ${lines}
-        <div class="term-foot"># updated ${fmtDate(today()).toLowerCase()} · <a class="link" href="#deadlines">see all</a></div>
-      </div>
+    <div class="soon" aria-label="Closing soon">
+      <div class="soon-head"><h2>Closing soon</h2><a class="link" href="#deadlines">All deadlines</a></div>
+      <div>${lines}</div>
+      <div class="soon-foot">Updated ${fmtDate(today())}</div>
     </div>
   </section>
 
@@ -761,6 +783,17 @@ function viewHome() {
       <div class="step"><span class="label">01 · Find</span><h3>Filter scholarships that fit you</h3><p>Search by country, level, funding and tests. Every listing explains what is covered and who can apply.</p></div>
       <div class="step"><span class="label">02 · Prepare</span><h3>Follow short, practical guides</h3><p>From English tests to apostilles, each guide tells you what to do and when, from grade 9 onward.</p></div>
       <div class="step"><span class="label">03 · Track</span><h3>Keep deadlines on your dashboard</h3><p>Save the scholarships you like, tick off documents and see how many days you have left.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>What students say</h2><span class="placeholder-note">Placeholder reviews. Real ones from students will go here.</span></div>
+    <div class="reviews">${REVIEWS.map(([init, meta, won]) => `
+      <figure class="review">
+        <blockquote>“A short review from a student goes here: what helped them most, how they prepared, and what they would tell someone just starting in grade 9.”</blockquote>
+        <span class="won">✓ ${won}</span>
+        <figcaption><span class="who-pic" aria-hidden="true">${init}</span><span><b>Student name</b><small>${meta}</small></span></figcaption>
+      </figure>`).join("")}
     </div>
   </section>
 
