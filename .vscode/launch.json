@@ -1,0 +1,21 @@
+{
+    // Press F5 (Run > Start Debugging) to open talpín in Chrome.
+    // The first configuration is the default and needs no server.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Open talpín in Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/talpin/index.html"
+        },
+        {
+            "name": "Open talpín on localhost:8080",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8080/",
+            "webRoot": "${workspaceFolder}/talpin",
+            "preLaunchTask": "Serve talpín on localhost:8080"
+        }
+    ]
+}

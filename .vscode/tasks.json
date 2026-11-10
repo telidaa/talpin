@@ -1,0 +1,24 @@
+{
+    // Starts a small local web server for the talpin folder.
+    // Used by the "Open talpín on localhost:8080" run configuration.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Serve talpín on localhost:8080",
+            "type": "shell",
+            "command": "python3 -u -m http.server 8080 --bind 127.0.0.1 --directory talpin",
+            "options": { "cwd": "${workspaceFolder}" },
+            "isBackground": true,
+            "presentation": { "reveal": "silent", "panel": "dedicated" },
+            "problemMatcher": {
+                "owner": "talpin-server",
+                "pattern": { "regexp": "^__never__(.*):(\\d+):(.*)$", "file": 1, "line": 2, "message": 3 },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Serving HTTP on",
+                    "endsPattern": "^Serving HTTP on"
+                }
+            }
+        }
+    ]
+}
