@@ -9,7 +9,7 @@
 <style>
 /* Layout: one 1080px column; hairline-separated lists instead of cards; mono for every date, count and code. Dark by default, light on request. */
 :root{
-  --bg:#0e0f11; --surface:#141518; --raise:#1b1d21; --fg:#ecebe7; --muted:#8d9097; --faint:#5b5e65; --line:#25272c;
+  --bg:#0e0f11; --surface:#141518; --raise:#1b1d21; --fg:#ecebe7; --muted:#8d9097; --faint:#7c7f87; --line:#25272c;
   --accent:#73c6dc; --accent-soft:rgba(115,198,220,.12); --warn:#e2a35a; --warn-soft:rgba(226,163,90,.13); --ok:#86c39a;
   --blue:#2f66e0; --blue-hover:#4479ef; --on-blue:#ffffff;
   --font-display:"Unbounded","Geist",ui-sans-serif,system-ui,sans-serif;
@@ -20,7 +20,7 @@
   color-scheme:dark;
 }
 :root[data-theme="light"]{
-  --bg:#f6f7f8; --surface:#ffffff; --raise:#eceef1; --fg:#131417; --muted:#5c6068; --faint:#9a9ea5; --line:#e1e3e7;
+  --bg:#f6f7f8; --surface:#ffffff; --raise:#eceef1; --fg:#131417; --muted:#5c6068; --faint:#6b6f77; --line:#e1e3e7;
   --accent:#0a7891; --accent-soft:rgba(10,120,145,.09); --warn:#a35f0c; --warn-soft:rgba(163,95,12,.1); --ok:#2d7444;
   --blue:#1f5fd6; --blue-hover:#184db0; --on-blue:#ffffff;
   color-scheme:light;
@@ -116,6 +116,51 @@ hr{border:0;border-top:1px solid var(--line);margin:0}
 .closing-left.urgent{color:var(--warn)}
 .closing-left.soon{color:var(--accent)}
 .closing-foot{padding:12px 22px;border-top:1px solid var(--line);font:400 13px var(--font-alt);color:var(--faint)}
+/* the year at a glance: one column per month, one block per deadline */
+.year-note{color:var(--muted);max-width:68ch;margin:-6px 0 28px}
+.year{display:grid;grid-template-columns:repeat(var(--cols,12),minmax(0,1fr));gap:6px;align-items:end;font-family:var(--font-alt)}
+.ym{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-width:0}
+.ym-stack{display:flex;flex-direction:column;gap:4px;min-width:0}
+.yd{display:flex;align-items:baseline;gap:5px;padding:6px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--fg);font:400 12px/1.2 var(--font-alt);text-decoration:none;min-width:0}
+.yd:hover{border-color:var(--faint)}
+.yd b{font-weight:500;font-variant-numeric:tabular-nums;color:var(--muted);flex:none}
+.yd span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.yd.is-urgent{border-color:var(--warn);background:var(--warn-soft)}
+.yd.is-urgent b{color:var(--warn)}
+.yd.is-soon{border-color:var(--accent);background:var(--accent-soft)}
+.yd.is-soon b{color:var(--accent)}
+.ym-label{border-top:1px solid var(--line);padding-top:10px;display:flex;align-items:baseline;gap:6px;font:500 13px/1 var(--font-alt);color:var(--fg)}
+.ym-label span{font-weight:400;font-size:12px;color:var(--faint)}
+.ym-quiet .ym-label b{color:var(--faint);font-weight:400}
+.year-legend{margin-top:22px}
+@media (max-width:1100px){
+  .year{grid-template-columns:minmax(0,1fr);gap:0;border-bottom:1px solid var(--line)}
+  .ym{flex-direction:row-reverse;justify-content:flex-end;align-items:flex-start;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+  .ym-quiet{display:none}
+  .ym-stack{flex-direction:row;flex-wrap:wrap;gap:6px;flex:1}
+  .ym-label{border-top:0;padding-top:7px;width:64px;flex:none;flex-direction:column;gap:4px}
+}
+/* questions */
+.faq-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:56px;align-items:start}
+.faq-intro h2{font-size:20px;letter-spacing:-.01em}
+.faq-intro p{color:var(--muted);margin-top:10px;max-width:36ch}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;font:500 16px/1.4 var(--font-body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 20px/1 var(--font-mono);color:var(--muted);flex:none}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--muted);max-width:64ch;padding-bottom:20px;margin-top:-4px}
+@media (max-width:860px){.faq-wrap{grid-template-columns:minmax(0,1fr);gap:20px}}
+/* closing band: the same inverted black-and-white block as the deadline countdown */
+.cta-band{margin-top:96px;display:flex;justify-content:space-between;align-items:center;gap:28px 48px;flex-wrap:wrap;padding:clamp(28px,4vw,52px);border-radius:14px;background:var(--fg);color:var(--bg)}
+.cta-band h2{font:400 clamp(24px,3vw,34px)/1.15 var(--font-display);letter-spacing:-.02em}
+.cta-band p{margin-top:10px;max-width:46ch;opacity:.72}
+.cta-band .ctas{display:flex;gap:10px;flex-wrap:wrap}
+.cta-band .btn{color:var(--bg);border-color:color-mix(in srgb,var(--bg) 35%,transparent)}
+.cta-band .btn:hover{border-color:var(--bg)}
+.cta-band .btn-primary{background:var(--bg);color:var(--fg);border-color:var(--bg)}
+.cta-band .btn-primary:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 /* student reviews */
 .reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
 .review{margin:0;padding:30px 36px 8px 0;display:grid;gap:22px;align-content:start;font-family:var(--font-alt)}
@@ -140,8 +185,8 @@ hr{border:0;border-top:1px solid var(--line);margin:0}
 
 /* rows (shared by scholarships, guides, deadlines) */
 .rows{border-bottom:1px solid var(--line)}
-.row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:20px;align-items:center;padding:18px 12px;margin-inline:-12px;border-top:1px solid var(--line);border-radius:0;transition:background .12s}
-.row:hover{background:var(--surface)}
+.row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:20px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.row:hover .row-title{text-decoration:underline;text-decoration-color:var(--faint);text-underline-offset:4px}
 .row-title{font-weight:500;font-size:16px;text-decoration:none}
 .row-title::after{content:"";position:absolute;inset:0}
 .row-sub{color:var(--muted);font-size:13.5px;margin-top:3px}
@@ -760,6 +805,16 @@ function viewHome() {
     ["M", "Finished school · Shymkent", "Stipendium Hungaricum"]
   ];
   const starters = ["roadmap", "english-tests", "documents"].map(guideById);
+  const SHORT = { "turkiye-burslari":"Türkiye", "stipendium-hungaricum":"Hungary", "gks-undergraduate":"Korea", "mext-undergraduate":"Japan", "csc-china":"China", "nyu-abu-dhabi":"NYU AD", "lester-b-pearson":"Pearson", "ubc-international-scholars":"UBC", "harvard-aid":"Harvard", "mit-aid":"MIT", "uwc":"UWC", "flex":"FLEX", "yygs":"Yale", "kaist":"KAIST", "constructor":"Constructor", "italy-dsu":"Italy" };
+  const t0 = today();
+  const months = Array.from({ length: 12 }, (_, i) => { const d = new Date(t0.getFullYear(), t0.getMonth() + i, 1); return { m: d.getMonth(), y: d.getFullYear(), items: [] }; });
+  [...SCHOLARSHIPS].sort((a, b) => daysLeft(a) - daysLeft(b)).forEach(s => {
+    const d = nextDate(s.deadline);
+    let slot = months.find(x => x.m === d.getMonth() && x.y === d.getFullYear());
+    if (!slot) months.push(slot = { m: d.getMonth(), y: d.getFullYear(), items: [] });
+    slot.items.push(s);
+  });
+  const busiest = months.reduce((a, b) => b.items.length > a.items.length ? b : a);
   return `
   <section class="hero">
     <div>
@@ -788,6 +843,18 @@ function viewHome() {
   </section>
 
   <section class="section">
+    <div class="section-head"><h2>The year at a glance</h2><a class="link" href="#deadlines">Open the calendar</a></div>
+    <p class="year-note">${busiest.items.length > 1 ? `${MONTHS_LONG[busiest.m]} is the busiest month, with ${busiest.items.length} deadlines. Start collecting documents two to three months before.` : "Deadlines are spread through the year. Start collecting documents two to three months before each one."}</p>
+    <div class="year" style="--cols:${months.length}">${months.map((mo, i) => `
+      <div class="ym${mo.items.length ? "" : " ym-quiet"}">
+        <div class="ym-stack">${mo.items.map(s => { const u = urgency(daysLeft(s)); return `<a class="yd${u ? " is-" + u : ""}" href="#scholarship.${s.id}" title="${esc(s.name)}, ${fmtDate(nextDate(s.deadline))}"><b>${nextDate(s.deadline).getDate()}</b><span>${esc(SHORT[s.id] || s.name)}</span></a>`; }).join("")}</div>
+        <div class="ym-label"><b>${MONTHS[mo.m]}</b>${i === 0 || mo.m === 0 ? `<span>${mo.y}</span>` : ""}</div>
+      </div>`).join("")}
+    </div>
+    <div class="legend year-legend"><span class="l-urgent">within 3 weeks</span><span class="l-soon">within 2 months</span><span>later</span></div>
+  </section>
+
+  <section class="section">
     <div class="section-head"><h2>What students say</h2><span class="placeholder-note">Placeholder reviews. Real ones from students will go here.</span></div>
     <div class="reviews">${REVIEWS.map(([init, meta, won]) => `
       <figure class="review">
@@ -801,6 +868,25 @@ function viewHome() {
   <section class="section">
     <div class="section-head"><h2>Start here</h2><a class="link" href="#guides">All guides</a></div>
     <div class="rows">${starters.map(gRow).join("")}</div>
+  </section>
+
+  <section class="section">
+    <div class="faq-wrap">
+      <div class="faq-intro"><h2>Questions students ask</h2><p>Short answers to what comes up most. The guides go deeper.</p></div>
+      <div class="faq">
+        <details open><summary>Is talpín free?</summary><p>Yes. Browsing scholarships, reading the guides and tracking your deadlines are all free.</p></details>
+        <details><summary>Are the deadlines exact?</summary><p>No. They are typical dates from past years, moved forward to the next cycle. Every scholarship page links to the official website, so check the exact date there before you apply.</p></details>
+        <details><summary>Do I need the SAT?</summary><p>Only for some universities in the United States, such as Harvard and MIT. Government scholarships in Türkiye, Hungary, Korea and China don't ask for it. <a class="link" href="#guide.sat">Read the SAT guide</a></p></details>
+        <details><summary>Does Bolashak pay for a bachelor's degree?</summary><p>No. Bolashak funds master's and PhD study. For your first degree, start with the scholarships listed here.</p></details>
+        <details><summary>When should I start preparing?</summary><p>Grade 9 or 10 is ideal, but grade 11 is not too late for many scholarships. <a class="link" href="#guide.roadmap">The roadmap</a> shows what to do each year.</p></details>
+        <details><summary>Where is my account kept?</summary><p>In this browser only, for now. If you clear your browser data or switch to another device, your saved scholarships won't follow you.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div><h2>Pick one scholarship and start.</h2><p>Save it, and talpín keeps its deadline and document checklist in front of you.</p></div>
+    <div class="ctas">${me() ? `<a class="btn btn-primary" href="#dashboard">Open your dashboard</a>` : `<a class="btn btn-primary" href="#signup">Create a free account</a>`}<a class="btn" href="#scholarships">Browse scholarships</a></div>
   </section>`;
 }
 
